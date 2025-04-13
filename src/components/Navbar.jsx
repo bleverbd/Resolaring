@@ -1,4 +1,7 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+
+
 import call_icon from "../assets/call_icon.svg"
 import search_icon from "../assets/search_icon.svg"
 import lan_icon from "../assets/language_icon.svg"
@@ -8,6 +11,39 @@ import btn_icon from "../assets/btn_icon.svg"
 import login_icon from "../assets/login_icon.svg"
 
 
+const navelemet=[
+  {path:"/",label:"Home"},
+  {path:"/resolaring",label:"Why Resolaring?"},
+  {path:"/process",label:"The Recycling Process"},
+  {path:"/marketplace",label:"Marketplace"},
+  {path:"/gallery",label:"Shared Gallery"},
+]
+
+const NavItem = ()=>{
+
+  return(
+    <ul className="flex gap-5">
+
+      { 
+      navelemet.map((item, index)=>(
+
+        <li key={index}>
+          <NavLink to={item.path} 
+          className={({isActive}) =>
+                      isActive
+                        ? "underline underline-offset-15"
+                        : ""
+                    }> 
+                    {item.label}
+          </NavLink>
+
+        </li>))
+
+      }
+    </ul>
+
+  )
+}
 
 const Navbar = () => {
   return (
@@ -59,7 +95,7 @@ const Navbar = () => {
       </div>
 
       {/* Nav Bar Down */}
-      <div className="max-w-[1520px] my-0 mx-auto py-4 px-0 flex  items-center gap-5">
+      <div className="max-w-[1520px] my-0 mx-auto py-4 px-0 flex  items-center gap-20 cursor-pointer">
         <div> 
           <div className="flex items-center gap-3">
           <div> <img src={logo_icon} alt="logo_Icon"></img> </div>
@@ -67,24 +103,29 @@ const Navbar = () => {
           </div>
           <div> <p className="text-[#6A7283] text-xs">Recycling and installing panels for a better future</p> </div>
           </div>
+          <div>
+            <NavItem/>
+            </div>
 
+          <div className="flex gap-8">
           <div className="bg-bg-btn-color rounded-4xl">
-            <button className='flex gap-2 py-2 px-4 items-center'>
+            <button className='flex gap-2 py-3 px-6 items-center group cursor-pointer'>
                
-             <p className="text-[#071431] font-semibold"> Become a Seller</p>
-             <img src={btn_icon} alt="btn_icon"/>
+             <p className="text-[#071431]"> Become a Seller</p>
+             <img className="group-hover:translate-x-2 duration-300"src={btn_icon} alt="btn_icon"/>
             </button>
           </div>
 
-          <div className="bg-bg-btn-color rounded-4xl">
-            <button className='flex gap-2 py-2 px-4 items-center'>
+          <div className="  rounded-4xl outline duration-300 ease-in-out hover:bg-bg-btn-color hover:outline-none">
+            <button className='flex gap-2 pt-3 px-6 items-center cursor-pointer'>
                
-             <p className="text-[#071431] font-semibold"> Login </p>
+             <p className="text-[#071431]"> Login </p>
              <img src={login_icon} alt="login_icon"/>
             </button>
           </div>
-          <div>
-            <p>Book Online</p>
+          <div className="flex items-center">
+            <p className="text-bg-btn-color underline">Book Online</p>
+          </div>
           </div>
 
 

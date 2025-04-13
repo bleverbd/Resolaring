@@ -8,8 +8,10 @@ function App() {
   return (
     <div>
      <Navbar/>
+    <main className="min-h-screen">
     <Outlet/>
-    <footer> Hello </footer>
+    </main>
+    <footer> Footer </footer>
     </div>
   )
 }
