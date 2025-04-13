@@ -9,6 +9,7 @@ import card_icon from "../assets/card_icon.svg"
 import logo_icon from "../assets/logo_icon.svg"
 import btn_icon from "../assets/btn_icon.svg"
 import login_icon from "../assets/login_icon.svg"
+import Btn from './Btn'
 
 
 const navelemet=[
@@ -108,16 +109,12 @@ const Navbar = () => {
             </div>
 
           <div className="flex gap-8">
-          <div className="bg-bg-btn-color rounded-4xl">
-            <button className='flex gap-2 py-3 px-6 items-center group cursor-pointer'>
-               
-             <p className="text-[#071431]"> Become a Seller</p>
-             <img className="group-hover:translate-x-2 duration-300"src={btn_icon} alt="btn_icon"/>
-            </button>
+          <div>
+            <Btn buttonTitle={"Become a Seller"}/>
           </div>
 
           <div className="  rounded-4xl outline duration-300 ease-in-out hover:bg-bg-btn-color hover:outline-none">
-            <button className='flex gap-2 pt-3 px-6 items-center cursor-pointer'>
+            <button className='flex gap-2 pt-4 px-7 items-center cursor-pointer'>
                
              <p className="text-[#071431]"> Login </p>
              <img src={login_icon} alt="login_icon"/>
