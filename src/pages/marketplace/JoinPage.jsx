@@ -6,7 +6,7 @@ import send_icon from "../../assets/send_icon.svg"
 
 const JoinPage = () => {
   return (
-    <div className="font-Syne max-w-[1520px] mx-auto mt-40">
+    <div className="font-Syne max-w-[1520px] mx-auto mt-40 mb-25">
         
         <div className="relative overflow-hidden rounded-2xl">
             <div> 

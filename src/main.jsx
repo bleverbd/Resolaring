@@ -43,6 +43,11 @@ const router = createBrowserRouter([
         path: "/resolaring",
         element: <Resolaring/>,
       },
+
+      {
+        path: "/bookonline",
+        element: <Resolaring/>,
+      },
     ],
   },
 ]);
