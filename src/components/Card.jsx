@@ -1,7 +1,7 @@
 import React from "react";
 
 
-function Card({card_bd,card_profile,card_star,card_icon,btn_icon,}) {
+function Card({data}) {
   return (
     <div className="font-Syne w-[332px] group">
       <div className=" group overflow-hidden rounded-xl relative duration-300 group-hover:shadow-2xl group-hover:-translate-y-3">
@@ -18,7 +18,7 @@ function Card({card_bd,card_profile,card_star,card_icon,btn_icon,}) {
         <div>
           <img
             className="w-[40px] h-[40px] bg-white rounded-full p-[10px] absolute top-3 right-5 z-20"
-            src={card_icon}
+            src={data.card_icon}
             alt="card_icon"
           />
         </div>
@@ -26,7 +26,7 @@ function Card({card_bd,card_profile,card_star,card_icon,btn_icon,}) {
         <div className="  overflow-hidden ">
           <img
             className="w-[332px] h-[290px] object-cover rounded-t-xl group-hover:scale-110 duration-300"
-            src={card_bd}
+            src={data.card_bd}
             alt="card bd"
           />
         </div>
@@ -36,14 +36,14 @@ function Card({card_bd,card_profile,card_star,card_icon,btn_icon,}) {
             <div className="flex gap-2 items-center">
               <img
                 className="rounded-full w-[40px] h-[40px]"
-                src={card_profile}
+                src={data.card_profile}
                 alt="card_profile"
               />
               <p className="text-[#6A7283] font-medium"> John Doe </p>
             </div>
 
             <div className="flex gap-2 items-center">
-              <img src={card_star} alt="card_star" />
+              <img src={data.card_star} alt="card_star" />
               <p> 4.5 (158) </p>
             </div>
           </div>
@@ -62,7 +62,7 @@ function Card({card_bd,card_profile,card_star,card_icon,btn_icon,}) {
                 <p className="text-[#071431] font-medium">View Details</p>
                 <img
                   className="group-hover:translate-x-2 duration-300"
-                  src={btn_icon}
+                  src={data.btn_icon}
                   alt="btn_icon"
                 />
               </button>
