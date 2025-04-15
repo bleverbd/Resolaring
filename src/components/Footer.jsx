@@ -39,8 +39,8 @@ const FooterItem = () => {
 const Footer = () => {
   return (
     <div className="font-Syne bg-[#071431] text-[#C1C4CC]">
-      <div className="max-w-[1520px] mx-auto">
-        <div className="flex gap-15 pt-15 pb-10 ">
+      <div className="max-w-[1520px] mx-auto my-0">
+        <div className="flex gap-15 pt-15 pb-10 px-5 ">
           {/* 1st Part */}
           <div className="flex flex-col gap-5 w-4/12">
             <div>
@@ -176,7 +176,7 @@ const Footer = () => {
                   placeholder="Message here"
                 ></textarea>
               </div>
-              <div>
+              <div className="w-47">
                 <Btn buttonTitle={" Submit here"} />
               </div>
             </div>

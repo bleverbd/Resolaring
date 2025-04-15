@@ -35,7 +35,7 @@ function Hero() {
             </p>
             </div>
 
-            <div >
+            <div className="w-3/12" >
                 <Btn buttonTitle={'List your Product'} />
             </div>
 

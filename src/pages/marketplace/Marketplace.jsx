@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Hero from "./Hero";
 import Card from "../../components/Card";
 
@@ -17,6 +17,7 @@ import search_icon from "../../assets/search_icon.svg";
 
 import { Slider } from "@/components/ui/slider.jsx";
 import JoinPage from "./JoinPage";
+import ShortBySelector from "@/components/ShortBySelector";
 
 const cardElement = [
   {
@@ -80,18 +81,27 @@ const cardElement = [
 ];
 
 const Marketplace = () => {
+  const [count, setCount] = useState(10);
   return (
     <div className="font-Syne">
+
+      {/* Hero Section */}
       <Hero />
 
+        {/* Body Start  */}
+
       <div className="max-w-[1520px] mx-auto my-20">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between px-2">
+
+          {/* Card Title */}
           <div className="text-[#071431] text-5xl font-semibold">
             {" "}
             <p>Your market for solar panels</p>{" "}
           </div>
 
+            {/* Search Item */}
           <div className=" relative">
+            {/* Input  */}
             <div className="bg-[#F5F6F7] rounded-3xl px-10 py-3 outline-1 outline-[#d6d8da] w-100">
               {" "}
               <input
@@ -100,15 +110,26 @@ const Marketplace = () => {
                 placeholder="Search for product"
               />
             </div>
+
+            {/* Icon Search  */}
             <div className="absolute top-4 right-5">
               {" "}
               <img src={search_icon} />{" "}
             </div>
           </div>
+
+
         </div>
 
-        <div className="flex gap-20 mt-30">
-          <div className="w-3/12 flex flex-col gap-10">
+
+
+        {/* Title End */}
+
+        {/* Body  */}
+        <div className="flex mt-30">
+            {/* Filter Start  */}
+          <div className="w-5/24 pr-10 pl-2 flex flex-col gap-10">
+            {/* Browse by */}
             <div>
               <div>
                 <p className="text-[#071431] text-3xl pb-3 font-semibold border-b-2 border-[#EBECEF]">
@@ -126,6 +147,8 @@ const Marketplace = () => {
                 </ul>
               </div>
             </div>
+
+            {/* Filter by */}
 
             <div>
               <div>
@@ -188,6 +211,10 @@ const Marketplace = () => {
               </div>
             </div>
 
+
+
+            {/* Price Range */}
+
             <div>
               <div>
                 <p className="text-[#071431] text-3xl pb-3 font-semibold border-b-2 border-[#EBECEF]">
@@ -196,21 +223,47 @@ const Marketplace = () => {
               </div>
               <div className="mt-3">
                 <p className="text-lg">
-                  <span className="text-[#798090]">Price:</span> $100 - $650,000
+                  <span className="text-[#798090]">Price:</span> $100 -{" "}
+                  <span>${count}</span>
                 </p>
               </div>
 
               <div className="mt-2">
-                <Slider className="" defaultValue={[0]} max={1000} step={5} />
+                <Slider
+                  value={[count]}
+                  onValueChange={(val) => setCount(val)}
+                  max={650000}
+                  min={100}
+                  step={5}
+                />
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-10 w-9/12 mt-18">
-            {cardElement.map((data) => (
-              <Card data={data} />
-            ))}
+
+
+          {/* Card Section */}
+          <div className="w-19/24 px-5">
+            {/* Card Drop Down */}
+            <div className="mt-5 text-[#6A7283] font-medium text-lg flex items-center justify-between">
+              <div>
+                {" "}
+                <p> 8 Products</p>
+              </div>
+              <div className="flex gap-2 items-center">
+                {" "}
+                <p>Sort by:</p> <ShortBySelector />{" "}
+              </div>
+            </div>
+
+            {/* Card Start */}
+            <div className="grid grid-cols-3 gap-x-5 gap-y-10 mt-5 ">
+              {cardElement.map((data) => (
+                <Card data={data} />
+              ))}
+            </div>
           </div>
+
         </div>
       </div>
 

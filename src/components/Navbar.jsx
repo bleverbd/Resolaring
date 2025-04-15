@@ -20,7 +20,7 @@ const navelemet = [
 
 const NavItem = () => {
   return (
-    <ul className="flex gap-5">
+    <ul className="flex gap-7">
       {navelemet.map((item, index) => (
         <li key={index}>
           <NavLink
@@ -40,12 +40,14 @@ const NavItem = () => {
 const Navbar = () => {
   return (
     <header className="font-Syne">
-      <nav>
+      <nav >
         {/* NavBar Upper */}
         <div className="bg-[#071431] w-full">
-          <div className="max-w-[1520px] my-0 mx-auto py-6 px-0  flex justify-between items-center">
+          <div className="max-w-[1520px] mx-auto my-0">
+          <div className="flex justify-between items-center py-6 px-5">
             {/* Left Silde */}
-            <div className="flex gap-5">
+
+            <div className="flex items-center gap-5">
               {/* CallBar */}
               <div className="flex gap-3">
                 <div className="w-[48px] h-[48px]">
@@ -58,6 +60,7 @@ const Navbar = () => {
                   </p>
                 </div>
               </div>
+
               {/* Search Bar */}
               <div className="bg-white flex  items-center  rounded-4xl w-[400px] py-2 px-6 relative">
                 <div>
@@ -80,9 +83,9 @@ const Navbar = () => {
             {/* Right Side */}
             <div className="flex gap-7 items-center">
               {/* Language_Bar */}
-             <div>
-              <Language/>
-             </div>
+              <div>
+                <Language />
+              </div>
 
               {/* card_Bar */}
               <div className="flex gap-3 items-center">
@@ -102,10 +105,12 @@ const Navbar = () => {
               </div>
             </div>
           </div>
+          </div>
         </div>
 
         {/* Nav Bar Down */}
-        <div className="max-w-[1520px] my-0 mx-auto py-4 px-0 flex  items-center gap-20 cursor-pointer">
+        <div className="max-w-[1520px] my-0 mx-auto">
+        <div className="py-4 px-5 flex  items-center gap-15 cursor-pointer">
           <div>
             <div className="flex items-center gap-3">
               <div>
@@ -130,21 +135,22 @@ const Navbar = () => {
             <NavItem />
           </div>
 
-          <div className="flex gap-8">
+          <div className="flex items-center gap-7">
             <div>
               <Btn buttonTitle={"Become a Seller"} />
             </div>
 
-            <div className="  rounded-4xl outline duration-300 ease-in-out hover:bg-bg-btn-color hover:outline-none">
-              <button className="flex gap-2 pt-4 px-7 items-center cursor-pointer">
+            <div className=" rounded-4xl py-3 px-5 outline duration-300 ease-in-out hover:bg-bg-btn-color hover:outline-none">
+              <button className="flex items-center justify-center gap-1 cursor-pointer ">
                 <p className="text-[#071431]"> Login </p>
-                <img src={login_icon} alt="login_icon" />
+                <img className="w-[18px] h-[18px]" src={login_icon} alt="login_icon" />
               </button>
             </div>
             <div className="flex items-center">
               <p className="text-bg-btn-color underline">Book Online</p>
             </div>
           </div>
+        </div>
         </div>
       </nav>
     </header>

@@ -22,7 +22,7 @@ const Lan = () => {
             <SelectTrigger className="cursor-pointer text-[#C1C4CC] border-none  focus-visible:ring-0">
               <SelectValue />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent className="absolute -right-20 top-2">
               <SelectItem
                 className="focus:bg-amber-100 focus:font-medium"
                 value="en"
