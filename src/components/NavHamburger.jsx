@@ -24,7 +24,7 @@ const navelemet = [
   { path: "/gallery", label: "Shared Gallery" },
 ];
 
-const NavItem = ({toggleMenu}) => {
+const NavItem = ({ toggleMenu }) => {
   return (
     <ul className="flex flex-col gap-4 text-xl">
       {navelemet.map((item, index) => (
@@ -64,7 +64,9 @@ const NavHamburger = () => {
           {/* RxHamburgerMenu */}
 
           <div onClick={toggleMenu}>
-            {isMenuOpen ? null: <RxHamburgerMenu className="w-[32px] h-[32px]" />}
+            {isMenuOpen ? null : (
+              <RxHamburgerMenu className="w-[32px] h-[32px]" />
+            )}
           </div>
 
           {/* New Page Start */}
@@ -72,8 +74,10 @@ const NavHamburger = () => {
           <div
             className={`z-50 fixed top-0 right-0 w-full h-screen backdrop-blur-sm  transition-transform transform ${
               isMenuOpen ? "-translate-x-0" : "translate-x-full"
-            } duration-300`}
-          >
+            } duration-300`}>
+              
+            <div className="absolute inset-0" onClick={toggleMenu}></div>
+            
             <div className="bg-white w-[400px] h-screen absolute top-0 right-0 px-5 py-5 flex flex-col justify-between">
               {/* cross Icon */}
               <div className="flex flex-col gap-5">
@@ -110,7 +114,7 @@ const NavHamburger = () => {
                 </div>
                 {/* Nav Item */}
                 <div>
-                  <NavItem toggleMenu={toggleMenu}/>
+                  <NavItem toggleMenu={toggleMenu} />
                 </div>
 
                 {/*  Language */}
