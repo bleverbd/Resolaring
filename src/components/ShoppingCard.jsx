@@ -1,7 +1,7 @@
 import React from "react";
 import card_icon from "../assets/card_icon.svg";
 
-const ShoppingCard = () => {
+const ShoppingCard = ({TextColor}) => {
   return (
     <div>
       <div className="flex gap-3 items-center">
@@ -13,8 +13,7 @@ const ShoppingCard = () => {
           </div>
         </div>
         <div>
-          {" "}
-          <p className="text-white font-Syne font-semibold font-2xl">$98.29</p>
+          <p className={`${TextColor} font-Syne font-semibold font-2xl`}>$98.29</p>
         </div>
       </div>
     </div>

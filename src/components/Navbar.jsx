@@ -89,7 +89,7 @@ const Navbar = () => {
 
               {/* card_Bar */}
               <div>
-                <ShoppingCard/>
+              <ShoppingCard TextColor="text-white"/>
               </div>
             </div>
           </div>
