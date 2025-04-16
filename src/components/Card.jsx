@@ -28,7 +28,7 @@ function Card({data}) {
       {/* Card Bg Image */}
         <div className="  overflow-hidden ">
           <img
-            className="h-[290px] object-cover rounded-t-xl group-hover:scale-110 duration-300"
+            className="h-[290px] w-full object-cover rounded-t-xl group-hover:scale-110 duration-300"
             src={data.card_bd}
             alt="card bd"
           />

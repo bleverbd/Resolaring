@@ -73,7 +73,7 @@ const cardElement = [
 
   {
     card_bd: card_bd4,
-    card_profile: card_profile3,
+    card_profile: card_profile4,
     card_star: card_star1,
     card_icon: card_icon1,
     btn_icon: btn_icon1,
@@ -84,28 +84,25 @@ const Marketplace = () => {
   const [count, setCount] = useState(10);
   return (
     <div className="font-Syne">
-
       {/* Hero Section */}
       <Hero />
 
-        {/* Body Start  */}
-
+      {/* Body Start  */}
       <div className="max-w-[1520px] mx-auto my-20">
-        <div className="flex items-center justify-between px-2">
-
+        <div className="sm:flex sm:items-center sm:justify-between px-2">
           {/* Card Title */}
-          <div className="text-[#071431] text-5xl font-semibold">
+          <div className="text-[#071431] text-3xl sm:text-5xl font-semibold">
             {" "}
             <p>Your market for solar panels</p>{" "}
           </div>
 
-            {/* Search Item */}
-          <div className=" relative">
+          {/* Search Item */}
+          <div className=" relative mt-5">
             {/* Input  */}
-            <div className="bg-[#F5F6F7] rounded-3xl px-10 py-3 outline-1 outline-[#d6d8da] w-100">
+            <div className="bg-[#F5F6F7] rounded-3xl px-5 py-3 outline-1 outline-[#d6d8da] sm:w-100 w-full">
               {" "}
               <input
-                className="focus:outline-none w-75"
+                className="focus:outline-none w-80"
                 type="search"
                 placeholder="Search for product"
               />
@@ -117,18 +114,14 @@ const Marketplace = () => {
               <img src={search_icon} />{" "}
             </div>
           </div>
-
-
         </div>
-
-
 
         {/* Title End */}
 
         {/* Body  */}
         <div className="flex mt-30">
-            {/* Filter Start  */}
-          <div className="w-5/24 pr-10 pl-2 flex flex-col gap-10">
+          {/* Filter Start  */}
+          <div className="w-5/24 pr-10 p flex flex-col gap-10">
             {/* Browse by */}
             <div>
               <div>
@@ -211,8 +204,6 @@ const Marketplace = () => {
               </div>
             </div>
 
-
-
             {/* Price Range */}
 
             <div>
@@ -240,30 +231,25 @@ const Marketplace = () => {
             </div>
           </div>
 
-
-
           {/* Card Section */}
           <div className="w-19/24 px-5">
             {/* Card Drop Down */}
-            <div className="mt-5 text-[#6A7283] font-medium text-lg flex items-center justify-between">
+            <div className="mt-5 text-[#6A7283] items-center font-medium text-lg sm:flex sm:items-center sm:justify-between">
               <div>
-                {" "}
                 <p> 8 Products</p>
               </div>
               <div className="flex gap-2 items-center">
-                {" "}
-                <p>Sort by:</p> <ShortBySelector />{" "}
+                <p>Sort by:</p> <ShortBySelector />
               </div>
             </div>
 
             {/* Card Start */}
-            <div className="grid grid-cols-3 gap-x-5 gap-y-10 mt-5 ">
+            <div className="grid xl:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-x-5 gap-y-10 mt-5 ">
               {cardElement.map((data) => (
                 <Card data={data} />
               ))}
             </div>
           </div>
-
         </div>
       </div>
 

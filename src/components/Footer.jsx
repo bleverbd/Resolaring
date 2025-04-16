@@ -40,9 +40,9 @@ const Footer = () => {
   return (
     <div className="font-Syne bg-[#071431] text-[#C1C4CC]">
       <div className="max-w-[1520px] mx-auto my-0">
-        <div className="flex gap-15 pt-15 pb-10 px-5 ">
+        <div className="flex flex-col gap-10 lg:flex lg:flex-row lg:gap-15 pt-15 pb-10 px-5 ">
           {/* 1st Part */}
-          <div className="flex flex-col gap-5 w-4/12">
+          <div className=" flex flex-col gap-5 lg:w-4/12">
             <div>
               <div className="flex items-center gap-5">
                 <div>
@@ -106,7 +106,7 @@ const Footer = () => {
 
           {/* 2nd part */}
 
-          <div className="flex flex-col gap-4 w-2/12">
+          <div className="flex flex-col gap-4 lg:w-2/12">
             <div>
               {" "}
               <p className="text-white text-lg font-semibold"> Quick Link </p>
@@ -117,7 +117,7 @@ const Footer = () => {
           </div>
 
           {/* 3rd Part */}
-          <div className="w-5/12 flex flex-col gap-5">
+          <div className="lg:w-5/12 flex flex-col gap-5">
             <div>
               <p className="text-white text-lg font-semibold"> Contact</p>
             </div>
@@ -131,7 +131,7 @@ const Footer = () => {
             </div>
 
             <div className=" flex flex-col gap-4">
-              <div className="grid grid-cols-2 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
                 <div>
                   <label className="text-white"> Name*</label> <br />
                   <input
@@ -182,6 +182,8 @@ const Footer = () => {
             </div>
           </div>
         </div>
+
+
 
         <div className="border-t border-white/20">
           <div className="flex items-center justify-center gap-2 mt-5 pb-10 mx-auto">

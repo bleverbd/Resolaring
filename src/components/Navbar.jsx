@@ -3,12 +3,12 @@ import { NavLink } from "react-router-dom";
 
 import call_icon from "../assets/call_icon.svg";
 import search_icon from "../assets/search_icon.svg";
-import card_icon from "../assets/card_icon.svg";
-import logo_icon from "../assets/logo_icon.svg";
 import login_icon from "../assets/login_icon.svg";
 
 import Btn from "./Btn";
 import Language from "./Language";
+import ShoppingCard from "./ShoppingCard";
+import Logo from "./Logo";
 
 const navelemet = [
   { path: "/", label: "Home" },
@@ -88,20 +88,8 @@ const Navbar = () => {
               </div>
 
               {/* card_Bar */}
-              <div className="flex gap-3 items-center">
-                <div className="bg-white rounded-full w-[45px] h-[45px] pt-2 pl-1.5 relative">
-                  {" "}
-                  <img className="w-[28px] h-[28px]" src={card_icon} />
-                  <div className="absolute bottom-7 left-7 bg-bg-btn-color rounded-full w-[24px]  h-[24px] pl-2 pb-2">
-                    2
-                  </div>
-                </div>
-                <div>
-                  {" "}
-                  <p className="text-white font-Syne font-semibold font-2xl">
-                    $98.29
-                  </p>
-                </div>
+              <div>
+                <ShoppingCard/>
               </div>
             </div>
           </div>
@@ -111,26 +99,9 @@ const Navbar = () => {
         {/* Nav Bar Down */}
         <div className="max-w-[1520px] my-0 mx-auto">
         <div className="py-4 px-5 flex  items-center gap-15 cursor-pointer">
-          <div>
-            <div className="flex items-center gap-3">
-              <div>
-                {" "}
-                <img src={logo_icon} alt="logo_Icon"></img>{" "}
-              </div>
-              <div>
-                {" "}
-                <p className="text-[#071431] text-3xl font-semibold">
-                  Resolaring{" "}
-                </p>{" "}
-              </div>
-            </div>
-            <div>
-              {" "}
-              <p className="text-[#6A7283] text-xs">
-                Recycling and installing panels for a better future
-              </p>{" "}
-            </div>
-          </div>
+         <div>
+          <Logo/>
+         </div>
           <div>
             <NavItem />
           </div>
