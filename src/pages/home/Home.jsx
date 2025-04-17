@@ -2,18 +2,15 @@ import NewComponet from '@/components/FilterBy';
 import React, { useState } from 'react'
 
 const Home = () => {
-  const [a,b]=useState("a");
-  const abc=()=>{
-    b("b")
-  }
   return (
     <div> 
+      
+    <input  type="text" placeholder="Product Name" />
+    <input  type="text" placeholder="Product Quantity"/>
+    <button>Submit</button>
+    <ul id="card_containter">
 
-      <p> {a}</p>
-      <button onClick={abc}>click me</button>
-
-      <NewComponet/>
-     
+    </ul>
     </div>
   )
 }
