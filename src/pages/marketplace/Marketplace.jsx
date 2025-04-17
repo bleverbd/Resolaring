@@ -15,9 +15,10 @@ import card_icon1 from "../../assets/card_icon1.svg";
 import btn_icon1 from "../../assets/btn_icon.svg";
 import search_icon from "../../assets/search_icon.svg";
 
-import { Slider } from "@/components/ui/slider.jsx";
 import JoinPage from "./JoinPage";
 import ShortBySelector from "@/components/ShortBySelector";
+import Flitering from "@/components/Flitering";
+import FilterBy from "@/components/FilterBy";
 
 const cardElement = [
   {
@@ -81,7 +82,6 @@ const cardElement = [
 ];
 
 const Marketplace = () => {
-  const [count, setCount] = useState(10);
   return (
     <div className="font-Syne">
       {/* Hero Section */}
@@ -119,122 +119,22 @@ const Marketplace = () => {
         {/* Title End */}
 
         {/* Body  */}
-        <div className="flex mt-30">
+        <div className="flex  gap-10 mt-30">
           {/* Filter Start  */}
-          <div className="w-5/24 pr-10 p flex flex-col gap-10">
-            {/* Browse by */}
-            <div>
-              <div>
-                <p className="text-[#071431] text-3xl pb-3 font-semibold border-b-2 border-[#EBECEF]">
-                  Browse by
-                </p>
-              </div>
-              <div className="mt-5">
-                <ul className="text-[#6A7283] text-lg flex flex-col gap-2 pl-7">
-                  <li>All Products</li>
-                  <li>Canadian Solar</li>
-                  <li>JA Solar</li>
-                  <li>Jinko Solar</li>
-                  <li>SMA Products</li>
-                  <li>Sunpower</li>
-                </ul>
-              </div>
-            </div>
-
-            {/* Filter by */}
-
-            <div>
-              <div>
-                <p className="text-[#071431] text-3xl pb-3 font-semibold border-b-2 border-[#EBECEF]">
-                  Filter by
-                </p>
-              </div>
-
-              <div className="flex flex-col gap-5 mt-5">
-                <div className="pl-7">
-                  <p className="text-[#071431] text-lg font-bold">
-                    Product Type
-                  </p>
-                </div>
-
-                <div>
-                  <ul className="text-[#6A7283] text-lg flex flex-col gap-2 pl-10">
-                    <li className="flex items-center gap-3">
-                      {" "}
-                      <input
-                        className="w-6 h-6 accent-bg-btn-color "
-                        type="checkbox"
-                      ></input>{" "}
-                      <p>JA Solar</p>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <input
-                        className="w-6 h-6 accent-bg-btn-color"
-                        type="checkbox"
-                      ></input>{" "}
-                      <p>SMA Products</p>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <input
-                        className="w-6 h-6 accent-bg-btn-color"
-                        type="checkbox"
-                      ></input>{" "}
-                      <p>SMA Products</p>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <input
-                        className="w-6 h-6 accent-bg-btn-color "
-                        type="checkbox"
-                      ></input>{" "}
-                      <p>Sunpower Products</p>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      {" "}
-                      <input
-                        className="w-6 h-6 accent-bg-btn-color"
-                        type="checkbox"
-                      ></input>{" "}
-                      <p>Sunpower Products</p>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Price Range */}
-
-            <div>
-              <div>
-                <p className="text-[#071431] text-3xl pb-3 font-semibold border-b-2 border-[#EBECEF]">
-                  Price Range
-                </p>
-              </div>
-              <div className="mt-3">
-                <p className="text-lg">
-                  <span className="text-[#798090]">Price:</span> $100 -{" "}
-                  <span>${count}</span>
-                </p>
-              </div>
-
-              <div className="mt-2">
-                <Slider
-                  value={[count]}
-                  onValueChange={(val) => setCount(val)}
-                  max={650000}
-                  min={100}
-                  step={5}
-                />
-              </div>
-            </div>
+          {/* <div className="lg:hidden">
+                <NewComponet/>
+          </div> */}
+          <div className="hidden w-5/24 lg:block">
+            <Flitering />
           </div>
 
           {/* Card Section */}
-          <div className="w-19/24 px-5">
+          <div className="lg:w-19/24 w-full px-5">
+            <div className="lg:hidden">
+              <FilterBy />
+            </div>
             {/* Card Drop Down */}
-            <div className="mt-5 text-[#6A7283] items-center font-medium text-lg sm:flex sm:items-center sm:justify-between">
+            <div className="mt-5 text-[#6A7283] font-medium text-lg flex items-center justify-between ">
               <div>
                 <p> 8 Products</p>
               </div>

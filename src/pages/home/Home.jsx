@@ -1,3 +1,4 @@
+import NewComponet from '@/components/FilterBy';
 import React, { useState } from 'react'
 
 const Home = () => {
@@ -10,6 +11,8 @@ const Home = () => {
 
       <p> {a}</p>
       <button onClick={abc}>click me</button>
+
+      <NewComponet/>
      
     </div>
   )

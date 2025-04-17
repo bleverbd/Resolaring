@@ -124,29 +124,29 @@ const NavHamburger = () => {
                   </div>
                   {/* <div> <p className='text-white font-Syne font-medium text-lg' >EN</p></div> */}
                   <div>
-                    <Select defaultValue="v">
+                    <Select defaultValue="en">
                       <SelectTrigger className="cursor-pointer text-xl border-none  focus-visible:ring-0">
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent className="absolute -right-20 top-2">
                         <SelectItem
                           className="focus:bg-amber-100 focus:font-medium text-xl"
-                          value="v"
+                          value="en"
                         >
-                          C...
+                          EN
                         </SelectItem>
                         <SelectItem
                           className="focus:bg-amber-100 focus:font-medium text-xl"
-                          value="st"
+                          value="bn"
                         >
-                          St...
+                          BN
                         </SelectItem>
 
                         <SelectItem
                           className="focus:bg-amber-100 focus:font-medium text-xl"
-                          value="va"
+                          value="ds"
                         >
-                          Va...
+                          DS
                         </SelectItem>
                       </SelectContent>
                     </Select>
