@@ -88,8 +88,8 @@ const Navbar = () => {
               </div>
 
               {/* card_Bar */}
-              <div>
-              <ShoppingCard TextColor="text-white"/>
+              <div className="cursor-pointer">
+                <NavLink to="/cart"> <ShoppingCard TextColor="text-white"/></NavLink>
               </div>
             </div>
           </div>

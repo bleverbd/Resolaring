@@ -13,6 +13,7 @@ import Gallery from './pages/gallery/Gallery.jsx';
 import Marketplace from './pages/marketplace/Marketplace.jsx';
 import Process from './pages/process/Process.jsx';
 import Resolaring from './pages/resolaring/Resolaring.jsx';
+import Cart from './pages/cart/Cart';
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,12 @@ const router = createBrowserRouter([
         path: "/bookonline",
         element: <Resolaring/>,
       },
+      {
+        path: "/cart",
+        element: <Cart/>,
+      },
+      
+      
     ],
   },
 ]);
