@@ -81,6 +81,8 @@ const cardElement = [
   },
 ];
 
+
+
 const Marketplace = () => {
   return (
     <div className="font-Syne">
@@ -149,6 +151,12 @@ const Marketplace = () => {
                 <Card data={data} />
               ))}
             </div>
+
+
+
+           
+
+
           </div>
         </div>
       </div>
