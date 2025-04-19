@@ -3,21 +3,29 @@ import incIcon from "../assets/inc_icon.svg";
 import decIcon from "../assets/dec_icon.svg";
 
 
-const InIcon = () => {
+const InIcon = ({onCountChange }) => {
 
   const [count,setCount]=useState(1);
 
 
-  const incerment=()=>
-  {
-      setCount(prev=>prev+1);
-  }
+  const increment = () => {
+    setCount(prev => {
+      const newCount = prev + 1;
+      onCountChange(newCount); // Parent এ পাঠানো
+      return newCount;
+    });
+  };
 
-  const decrement=()=>{
+  const decrement = () => {
+    setCount(prev => {
+      const newCount = prev > 0 ? prev - 1 : 0;
+      onCountChange(newCount); // Parent এ পাঠানো
+      return newCount;
+    });
+  };
 
-    if(count>0)
-      setCount(prev=>prev-1);
-  }
+
+
 
   return (
     <div className="font-Syne"> 
@@ -35,7 +43,7 @@ const InIcon = () => {
 
 
        <div>
-        <button onClick={incerment}><div className="w-[32px] h-[32px] bg-[#071431] relative rounded-full"> <img className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src={incIcon}/></div></button>
+        <button onClick={increment}><div className="w-[32px] h-[32px] bg-[#071431] relative rounded-full"> <img className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" src={incIcon}/></div></button>
        </div>
 
       </div>

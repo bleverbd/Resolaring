@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Table,
   TableBody,
@@ -19,31 +19,48 @@ const getCartFromLocalStorage = () => {
   return cart;
 };
 
+
 const TableIt = () => {
   const cart = getCartFromLocalStorage();
+  const [quantities, setQuantities] = useState(
+    cart.map(() => 1)
+  );
+
+  const handleCountChange = (index, newCount) => {
+    const updatedQuantities = [...quantities];
+    updatedQuantities[index] = newCount;
+    setQuantities(updatedQuantities);
+  };
+
 
   return (
     <>
-      {cart.map((item, index) => (
-        <TableRow key={index} >
-          <TableCell>
-            <img
-              src={item.src}
-              alt={item.name}
-              className="w-[168px] h-[168px] object-cover rounded-xl"
-            />
-          </TableCell>
-          <TableCell >{item.name}</TableCell>
-          <TableCell >{item.price}</TableCell>
-          
+      {cart.map((item, index) => {
+        const subtotal = item.price * quantities[index];
+        return (
+          <TableRow key={index}>
+            <TableCell>
+              <img
+                src={item.src}
+                alt={item.name}
+                className="w-[168px] h-[168px] object-cover rounded-xl"
+              />
+            </TableCell>
+            <TableCell>{item.name}</TableCell>
+            <TableCell>{item.price}</TableCell>
 
-          <TableCell > <InIcon /></TableCell>
-          <TableCell > {item.price}</TableCell>
+            <TableCell>
+              <InIcon
+                onCountChange={(newCount) =>
+                  handleCountChange(index, newCount)
+                }
+              />
+            </TableCell>
 
-
-         
-        </TableRow>
-      ))}
+            <TableCell>{subtotal}</TableCell>
+          </TableRow>
+        );
+      })}
     </>
   );
 };
@@ -52,8 +69,9 @@ const TableIt = () => {
 
 const Cart = () => {
   return (
-    <div>
-      <Table>
+    <div className="font-Syne max-w-[1520px] my-0 mx-auto ">
+     <div>
+     <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
           <TableRow>
@@ -70,6 +88,7 @@ const Cart = () => {
          <TableIt />
         </TableBody>
       </Table>
+     </div>
     </div>
   );
 };
