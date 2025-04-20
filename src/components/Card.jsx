@@ -1,9 +1,9 @@
 import React from "react";
+import toast, { Toaster } from 'react-hot-toast';
+const notify = () => toast('Here is your toast.');
 
 const price = 150;
-const productName= "JA Solar 200W";
-
-
+const productName = "JA Solar 200W";
 
 const getCartFromLocalStorage = () => {
   let cart = [];
@@ -14,15 +14,33 @@ const getCartFromLocalStorage = () => {
   return cart;
 };
 
-const saveToLocalStorage = (productName, product_price,prduct_picture) => {
+const saveToLocalStorage = (productName, product_price, prduct_picture) => {
   const cart = getCartFromLocalStorage();
+
+  // const isDuplicate = cart.some(
+  //   (item) => item.productName.toLowerCase() === productName.toLowerCase()
+  // );
+  // // const isNull = cart.some(item => item.name ===null);
+  // // if(isNull){
+  // //     alert("This product name is Null!");
+  // //     return;
+  // // }
+  // if (isDuplicate) {
+  //   alert("This product name already exists!");
+  //   return;
+  // }
   cart.push({ src: prduct_picture, name: productName, price: product_price });
   const saveStored = JSON.stringify(cart);
   localStorage.setItem("cart", saveStored);
+
+  const totalPrice = cart.reduce((total, item) => total + item.price, 0);
+  const totalItem = cart.length;
+
+  localStorage.setItem("totalPrice", JSON.stringify(totalPrice));
+  localStorage.setItem("totalItem", JSON.stringify(totalItem));
 };
 
 function Card({ data }) {
-
   const handleData = (data) => {
     //  console.log("data", data);
     addToCart();
@@ -30,12 +48,11 @@ function Card({ data }) {
   };
 
   const addToCart = () => {
-    const prduct_picture=data.card_bd;
+    const prduct_picture = data.card_bd;
     const product_name = productName;
     const product_price = price;
-    saveToLocalStorage(product_name, product_price,prduct_picture);
+    saveToLocalStorage(product_name, product_price, prduct_picture);
   };
-
 
   return (
     <div className="font-Syne  group">
