@@ -3,6 +3,8 @@ import React from "react";
 const price = 150;
 const productName= "JA Solar 200W";
 
+
+
 const getCartFromLocalStorage = () => {
   let cart = [];
   const storedCart = localStorage.getItem("cart");
@@ -22,7 +24,7 @@ const saveToLocalStorage = (productName, product_price,prduct_picture) => {
 function Card({ data }) {
 
   const handleData = (data) => {
-    console.log("data", data);
+    //  console.log("data", data);
     addToCart();
     // localStorage.setItem("products", JSON.stringify(data.card_bd));
   };

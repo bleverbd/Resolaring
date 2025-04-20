@@ -18,6 +18,8 @@ const navelemet = [
   { path: "/gallery", label: "Shared Gallery" },
 ];
 
+
+
 const NavItem = () => {
   return (
     <ul className="flex gap-7">

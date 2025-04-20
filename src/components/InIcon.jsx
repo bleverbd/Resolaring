@@ -11,7 +11,7 @@ const InIcon = ({onCountChange }) => {
   const increment = () => {
     setCount(prev => {
       const newCount = prev + 1;
-      onCountChange(newCount); // Parent এ পাঠানো
+      onCountChange(newCount); 
       return newCount;
     });
   };
@@ -19,7 +19,7 @@ const InIcon = ({onCountChange }) => {
   const decrement = () => {
     setCount(prev => {
       const newCount = prev > 0 ? prev - 1 : 0;
-      onCountChange(newCount); // Parent এ পাঠানো
+      onCountChange(newCount);
       return newCount;
     });
   };
