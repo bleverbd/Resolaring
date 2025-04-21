@@ -1,7 +1,5 @@
 import React from "react";
-import toast, { Toaster } from 'react-hot-toast';
-const notify = () => toast('Here is your toast.');
-
+import toast, { Toaster } from "react-hot-toast";
 const price = 150;
 const productName = "JA Solar 200W";
 
@@ -17,18 +15,14 @@ const getCartFromLocalStorage = () => {
 const saveToLocalStorage = (productName, product_price, prduct_picture) => {
   const cart = getCartFromLocalStorage();
 
-  // const isDuplicate = cart.some(
-  //   (item) => item.productName.toLowerCase() === productName.toLowerCase()
-  // );
-  // // const isNull = cart.some(item => item.name ===null);
-  // // if(isNull){
-  // //     alert("This product name is Null!");
-  // //     return;
-  // // }
-  // if (isDuplicate) {
-  //   alert("This product name already exists!");
-  //   return;
-  // }
+  const isDuplicate = cart.some(
+    (item) => item?.src?.toLowerCase() === prduct_picture?.toLowerCase()
+  );
+  if (isDuplicate) {
+    toast.error("This product name already exists!");
+    return;
+  }
+
   cart.push({ src: prduct_picture, name: productName, price: product_price });
   const saveStored = JSON.stringify(cart);
   localStorage.setItem("cart", saveStored);
@@ -41,10 +35,8 @@ const saveToLocalStorage = (productName, product_price, prduct_picture) => {
 };
 
 function Card({ data }) {
-  const handleData = (data) => {
-    //  console.log("data", data);
+  const handleData = (data) => { 
     addToCart();
-    // localStorage.setItem("products", JSON.stringify(data.card_bd));
   };
 
   const addToCart = () => {
@@ -56,6 +48,7 @@ function Card({ data }) {
 
   return (
     <div className="font-Syne  group">
+      <Toaster/>
       {/* Card Start */}
       <div className=" group overflow-hidden rounded-xl relative duration-300 group-hover:shadow-2xl group-hover:-translate-y-3">
         {/* Discount Btn */}
@@ -120,10 +113,13 @@ function Card({ data }) {
 
             {/* Btn */}
             <div className="cursor-pointer outline rounded-4xl px-5 py-2 group-hover:bg-bg-btn-color group-hover:outline-none">
+              {/* <button onClick={notify}>Make me a toast</button> */}
               <button
                 onClick={() => handleData(data)}
                 className="flex gap-1 items-center cursor-pointer "
               >
+                  {/* <Toaster/> */}
+              
                 <p className="text-[#071431] font-medium">Add To Cart</p>
                 <img
                   className="group-hover:translate-x-2 duration-300"
