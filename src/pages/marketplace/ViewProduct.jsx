@@ -1,6 +1,6 @@
-import React from "react";
-import NumberPicker from "react-widgets/NumberPicker";
-
+import React, { useState } from "react";
+import number_up from "../../assets/number_up.svg";
+import number_down from "../../assets/number_down.svg";
 
 import Btn from "@/components/Btn";
 import socal_fb from "../../assets/socal_fb.svg";
@@ -9,6 +9,10 @@ import socal_whatapps from "../../assets/socal_what.svg";
 import socal_x from "../../assets/socal_x.svg";
 import socal_lin from "../../assets/socal_lin.svg";
 import image_icon from "../../assets/image_icon.svg";
+import { useLocation } from "react-router-dom";
+
+
+
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -27,10 +31,25 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { useLocation } from "react-router-dom";
+
+
+
 
 const ViewProduct = () => {
   const { state } = useLocation();
+
+  const [count, setCount] = useState(1);
+
+  const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
+
   return (
     <div className="font-Syne max-w-[1520px] my-0 mx-auto px-5">
       <div className="flex flex-col gap-5">
@@ -144,11 +163,20 @@ const ViewProduct = () => {
                 <p className="text-[#6A7283] text-lg">Quantity</p>
               </div>
 
-              <div className="bg-[#F5F6F7] rounded-lg px-2 py-1 w-20">
-                <input
-                  className="w-15 px-2 py-1 font-Syne text-lg focus:outline-none "
-                  type="number"
-                />
+              <div className="bg-[#F5F6F7] rounded-lg px-3 py-1 w-20 mt-1 flex items-center justify-between">
+                <div>
+                  <p className="text-[#071431] text-2xl font-medium">{count}</p>
+                </div>
+                <div className=" flex flex-col">
+                  <button onClick={increment} className="cursor-pointer">
+                    {" "}
+                    <img src={number_up} />
+                  </button>
+                  <button onClick={decrement} className="cursor-pointer">
+                    {" "}
+                    <img src={number_down} />{" "}
+                  </button>
+                </div>
               </div>
             </div>
 
