@@ -132,14 +132,14 @@ const Navbar = () => {
               </div>
 
               <div className=" rounded-4xl py-3 px-5 outline duration-300 ease-in-out hover:bg-bg-btn-color hover:outline-none">
-                <button className="flex items-center justify-center gap-1 cursor-pointer ">
+               <NavLink to="/login"><button className="flex items-center justify-center gap-1 cursor-pointer ">
                   <p className="text-[#071431]"> Login </p>
                   <img
                     className="w-[18px] h-[18px]"
                     src={login_icon}
                     alt="login_icon"
                   />
-                </button>
+                </button> </NavLink> 
               </div>
               <div className="flex items-center">
                 <p className="text-bg-btn-color underline">Book Online</p>

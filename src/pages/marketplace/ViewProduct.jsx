@@ -1,5 +1,7 @@
 import React from "react";
-import item_image from "../../assets/card_bd_1.png";
+import NumberPicker from "react-widgets/NumberPicker";
+
+
 import Btn from "@/components/Btn";
 import socal_fb from "../../assets/socal_fb.svg";
 import socal_pin from "../../assets/socal_pin.svg";
@@ -25,8 +27,10 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { useLocation } from "react-router-dom";
 
-const Home = () => {
+const ViewProduct = () => {
+  const { state } = useLocation();
   return (
     <div className="font-Syne max-w-[1520px] my-0 mx-auto px-5">
       <div className="flex flex-col gap-5">
@@ -72,21 +76,21 @@ const Home = () => {
             <div>
               <img
                 className="rounded-lg w-[676px] h-[375] object-cover"
-                src={item_image}
+                src={state.card_bd}
               />
             </div>
             <div className="flex gap-5 mt-5">
               <div>
                 <img
                   className="rounded-lg w-[326px] h-[375] object-cover"
-                  src={item_image}
+                  src={state.card_bd}
                 />
               </div>
               <div>
                 <div className="relative">
                   <img
                     className="rounded-lg w-[326px] h-[375] object-cover"
-                    src={item_image}
+                    src={state.card_bd}
                   />
                   <div className="absolute top-2 right-3 bg-black/20 flex gap-2 px-2 py-2 rounded-lg hover:scale-105 duration-300 cursor-pointer">
                     <img src={image_icon} />
@@ -119,7 +123,7 @@ const Home = () => {
 
             <div>
               <p className="text-5xl text-[#071431] font-semibold">
-                JA Solar 200W
+                {state.name}
               </p>
               <p className="text-[#6A7283] text-lg mt-4">
                 JA Solar 200W Panel – High-efficiency monocrystalline panel with
@@ -129,7 +133,9 @@ const Home = () => {
             </div>
 
             <div>
-              <p className="text-4xl text-[#071431] font-semibold">55,00 €</p>
+              <p className="text-4xl text-[#071431] font-semibold">
+                ${state.price}
+              </p>
               <p className="text-[#6A7283] text-lg mt-2">Excluding Sales Tax</p>
             </div>
 
@@ -143,7 +149,6 @@ const Home = () => {
                   className="w-15 px-2 py-1 font-Syne text-lg focus:outline-none "
                   type="number"
                 />
-                
               </div>
             </div>
 
@@ -165,4 +170,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default ViewProduct;

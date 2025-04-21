@@ -107,8 +107,8 @@ const Cart = () => {
   localStorage.setItem("totalItem", JSON.stringify(totalItem));
 
   return (
-    <div className="font-Syne max-w-[1520px] my-0 mx-auto mb-20 flex gap-20">
-      <div className="w-3/4">
+    <div className="font-Syne max-w-[1520px] my-0 mx-auto mb-20 lg:flex lg:gap-20 ">
+      <div className="lg:w-3/4 w-full">
         <div>
           <Table>
             <TableHeader>
@@ -214,7 +214,10 @@ const Cart = () => {
         </div>
       </div>
 
-      <div className="w-1/4 ">
+
+
+
+      <div className="lg:w-1/4 lg:mt-0 md:w-full mt-20">
         <p className="text-[#071431] text-lg  font-semibold">Order Summary</p>
 
         <div className="bg-[#e7e8eb] rounded-lg outline-1 outline-[#DFE0E4] flex flex-col gap-3 p-3 mt-5">

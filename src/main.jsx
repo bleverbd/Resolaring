@@ -13,7 +13,9 @@ import Gallery from './pages/gallery/Gallery.jsx';
 import Marketplace from './pages/marketplace/Marketplace.jsx';
 import Process from './pages/process/Process.jsx';
 import Resolaring from './pages/resolaring/Resolaring.jsx';
+import Login from './pages/login/Login.jsx';
 import Cart from './pages/cart/Cart';
+import ViewProduct from './pages/marketplace/ViewProduct';
 
 const router = createBrowserRouter([
   {
@@ -53,8 +55,14 @@ const router = createBrowserRouter([
         path: "/cart",
         element: <Cart/>,
       },
-      
-      
+      {
+        path: "/login",
+        element: <Login/>,
+      },
+      {
+        path: "/marketplace/:id",
+        element: <ViewProduct/>,
+      },
     ],
   },
 ]);

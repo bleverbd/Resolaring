@@ -1,7 +1,10 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
-const price = 150;
-const productName = "JA Solar 200W";
+import { NavLink } from "react-router-dom";
+
+import card_star1 from "../assets/card_icon2.svg";
+import card_icon1 from "../assets/card_icon1.svg";
+import btn_icon1 from "../assets/btn_icon.svg";
 
 const getCartFromLocalStorage = () => {
   let cart = [];
@@ -12,18 +15,17 @@ const getCartFromLocalStorage = () => {
   return cart;
 };
 
-const saveToLocalStorage = (productName, product_price, prduct_picture) => {
+const saveToLocalStorage = (product_id,prduct_picture,product_name,product_price,product_rating) => {
   const cart = getCartFromLocalStorage();
 
   const isDuplicate = cart.some(
-    (item) => item?.src?.toLowerCase() === prduct_picture?.toLowerCase()
-  );
+    (item) => item.id=== product_id);
   if (isDuplicate) {
     toast.error("This product name already exists!");
     return;
   }
 
-  cart.push({ src: prduct_picture, name: productName, price: product_price });
+  cart.push({ id:product_id,src:prduct_picture,name:product_name,price:product_price,rating:product_rating});
   const saveStored = JSON.stringify(cart);
   localStorage.setItem("cart", saveStored);
 
@@ -36,17 +38,23 @@ const saveToLocalStorage = (productName, product_price, prduct_picture) => {
 
 function Card({ data }) {
   const handleData = (data) => { 
+
     addToCart();
   };
 
   const addToCart = () => {
+    const product_id= data.id;
     const prduct_picture = data.card_bd;
-    const product_name = productName;
-    const product_price = price;
-    saveToLocalStorage(product_name, product_price, prduct_picture);
+    const product_name = data.name;
+    const product_price = data.price;
+    const product_rating = data.rating;
+
+
+    saveToLocalStorage(product_id,prduct_picture,product_name,product_price,product_rating);
   };
 
   return (
+  
     <div className="font-Syne  group">
       <Toaster/>
       {/* Card Start */}
@@ -62,18 +70,20 @@ function Card({ data }) {
         <div>
           <img
             className="w-[40px] h-[40px] bg-white rounded-full p-[10px] absolute top-3 right-5 z-20"
-            src={data.card_icon}
+            src={card_icon1}
             alt="card_icon"
           />
         </div>
 
         {/* Card Bg Image */}
         <div className="  overflow-hidden ">
-          <img
+        <NavLink to={`/marketplace/${data.id}`} state={data}> <img
             className="h-[290px] w-full object-cover rounded-t-xl group-hover:scale-110 duration-300"
             src={data.card_bd}
             alt="card bd"
-          />
+          /></NavLink>
+         
+  
         </div>
 
         {/* Card Down Start */}
@@ -91,15 +101,15 @@ function Card({ data }) {
             </div>
 
             <div className="flex gap-2 items-center">
-              <img src={data.card_star} alt="card_star" />
-              <p> 4.5 (158) </p>
+              <img src={card_star1} alt="card_star" />
+              <p> {data.rating} </p>
             </div>
           </div>
 
           {/* JA Solar 200W Text */}
           <div>
             <p className="text-[#192A48] font-semibold text-xl">
-              JA Solar 200W
+              {data.name}
             </p>
           </div>
 
@@ -108,7 +118,7 @@ function Card({ data }) {
             {/* Price Text  */}
             <div>
               <p className="text-[#6A7283] text-sm">Tax excluded</p>
-              <p className="text-[#071431] font-semibold text-xl"> 55,00 €</p>
+              <p className="text-[#071431] font-semibold text-xl"> {data.price} €</p>
             </div>
 
             {/* Btn */}
@@ -123,7 +133,7 @@ function Card({ data }) {
                 <p className="text-[#071431] font-medium">Add To Cart</p>
                 <img
                   className="group-hover:translate-x-2 duration-300"
-                  src={data.btn_icon}
+                  src={btn_icon1}
                   alt="btn_icon"
                 />
               </button>
