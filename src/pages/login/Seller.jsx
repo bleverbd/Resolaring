@@ -8,12 +8,26 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Seller = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let tempErrors = {};
+
+    if (!name.trim()) tempErrors.name = "Name is required";
+    if (!email.trim()) tempErrors.email = "Email is required";
+    if (!password.trim()) tempErrors.password = "Password is required";
+
+    setErrors(tempErrors);
+  };
+
   const [showPassword, setshowPassword] = useState(false);
   const TogglePassword = () => {
     setshowPassword(!showPassword);
-
   };
-
 
   const [showPassword1, setshowPassword1] = useState(false);
 
@@ -25,7 +39,7 @@ const Seller = () => {
       <div className="max-w-[1520px] my-0 mx-auto flex items-center gap-15 px-20">
         <div className="w-1/2 flex flex-col gap-5">
           <div>
-            <form className="flex flex-col gap-5">
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div>
                 <label for="name">Name*</label>
                 <input
@@ -33,7 +47,12 @@ const Seller = () => {
                   type="name"
                   name="name"
                   placeholder="Enter your name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
+                {errors.name && (
+                  <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                )}
               </div>
               <div>
                 <label for="email">Email*</label>
@@ -42,21 +61,31 @@ const Seller = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
               </div>
 
               <div>
-              <label for="password">Choose Password*</label>
+                <label for="password">Choose Password*</label>
                 <div className=" relative mt-2">
-                 
                   <input
                     className="focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-xl font-medium text-sm"
                     type={showPassword ? "text" : "password"}
                     id="password"
                     name="password"
                     placeholder="Password"
-                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
+                  {errors.password && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.password}
+                    </p>
+                  )}
                   <div
                     className="absolute top-3 right-5 "
                     onClick={TogglePassword}
@@ -67,17 +96,22 @@ const Seller = () => {
               </div>
 
               <div>
-              <label for="password">Confirm Password*</label>
+                <label for="password">Confirm Password*</label>
                 <div className=" relative mt-2">
-                 
                   <input
                     className="focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-xl font-medium text-sm"
                     type={showPassword1 ? "text" : "password"}
                     id="password"
                     name="password"
                     placeholder="Password"
-                    required
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
+                  {errors.password && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.password}
+                    </p>
+                  )}
                   <div
                     className="absolute top-3 right-5 "
                     onClick={TogglePassword1}
@@ -90,7 +124,7 @@ const Seller = () => {
               <div className="flex items-center gap-2">
                 <input type="checkbox" />
                 <p className="text-[#071431] text-sm font-medium">
-                I agree to the terms & policy
+                  I agree to the terms & policy
                 </p>
               </div>
 

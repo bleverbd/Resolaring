@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import loginbg from "../../assets/loginbg.png";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const EmailVerify = () => {
+  const navigate = useNavigate();
+  const [email,setEmail] =useState("");
+  const [errors, setErrors] = useState({});
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let tempErrors = {};
+
+    if (!email.trim())
+       {tempErrors.email = "Email is required";}
+
+    else{
+        navigate("/sendcode"); // navigate only if email is not empty
+      }
+    
+
+    setErrors(tempErrors);
+
+  };
+  
   return (
     <div>
       <div className=" max-w-[1520px] my-0 mx-auto flex gap-10 items-center px-30">
@@ -12,7 +32,7 @@ const EmailVerify = () => {
             Verify Email
           </p>
 
-          <form>
+          <form onClick={handleSubmit}>
             <div>
               <label for="email">Email*</label>
               <input
@@ -20,17 +40,22 @@ const EmailVerify = () => {
                 type="email"
                 name="email"
                 placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
+              {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
             </div>
 
             <div className="mt-5">
-              <NavLink to="/sendcode">
+              
                 {" "}
                 <button className="bg-bg-btn-color  rounded-2xl w-full hover:scale-105 duration-300 cursor-pointer">
                   {" "}
                   <p className="my-3">Send</p>{" "}
                 </button>
-              </NavLink>
+             
             </div>
           </form>
         </div>

@@ -9,13 +9,26 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 const Login = () => {
- 
 
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({});
 
-  const [showPassword,setshowPassword]=useState(false)
-  const TogglePassword=()=>{
-    setshowPassword(!showPassword)
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let tempErrors = {};
+
+    if (!email.trim()) tempErrors.email = "This field is required";
+    if (!password.trim()) tempErrors.password = "This field is required";
+
+    setErrors(tempErrors);
+
+  };
+
+  const [showPassword, setshowPassword] = useState(false);
+  const TogglePassword = () => {
+    setshowPassword(!showPassword);
+  };
 
   return (
     <div className="font-Syne ">
@@ -31,7 +44,7 @@ const Login = () => {
           </div>
 
           <div>
-            <form className="flex flex-col gap-5" >
+            <form onSubmit={handleSubmit} className="flex flex-col gap-5">
               <div>
                 <label for="email">Email*</label>
                 <input
@@ -39,17 +52,23 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-              
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
-
+                {errors.email && (
+                  <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                )}
               </div>
 
               <div>
                 <div className="flex items-center justify-between mt-5">
                   <label for="password">Password*</label>
-                  <NavLink to="/emailverify"> <p className="text-[#B45C3D] text-sm underline">
-                    Forgot Password
-                  </p></NavLink>
+                  <NavLink to="/emailverify">
+                    {" "}
+                    <p className="text-[#B45C3D] text-sm underline">
+                      Forgot Password
+                    </p>
+                  </NavLink>
                 </div>
 
                 <div className="">
@@ -57,14 +76,20 @@ const Login = () => {
                     <input
                       className=" mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-xl font-medium text-sm"
                       type={showPassword ? "text" : "password"}
-
                       id="password"
                       name="password"
                       placeholder="Password"
-                      required
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
                     />
-                    <div className="absolute top-4 right-5 " onClick={TogglePassword} >
-                      <img src={showPassword ? eye_icon : eye_icon1}/>
+                     {errors.password && (
+            <p className="text-red-500 text-sm mt-1">{errors.password}</p>
+          )}
+                    <div
+                      className="absolute top-4 right-5 "
+                      onClick={TogglePassword}
+                    >
+                      <img src={showPassword ? eye_icon : eye_icon1} />
                     </div>
                   </div>
                 </div>
@@ -114,7 +139,10 @@ const Login = () => {
             <div className="mt-3 pl-20">
               <p className="text-[#071431] font-semibold">
                 Don’t have an account?{" "}
-                <NavLink to="/option"> <span className="text-[#B45C3D] font-semibold">Sign Up</span></NavLink>
+                <NavLink to="/option">
+                  {" "}
+                  <span className="text-[#B45C3D] font-semibold">Sign Up</span>
+                </NavLink>
               </p>
             </div>
           </div>

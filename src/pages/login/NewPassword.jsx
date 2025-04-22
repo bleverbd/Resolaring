@@ -1,13 +1,18 @@
+
 import React from "react";
 import loginbg from "../../assets/loginbg.png";
-import { NavLink } from "react-router-dom";
 import { useState } from "react";
 import eye_icon1 from "../../assets/eye_icon.svg";
 import eye_icon from "../../assets/ey_icon.svg";
 
+
 const NewPassword = () => {
   const [showPassword, setshowPassword] = useState(false);
   const TogglePassword = () => {
+    setshowPassword(!showPassword);
+  };
+  const [showPassword1, setshowPassword1] = useState(false);
+  const TogglePassword1 = () => {
     setshowPassword(!showPassword);
   };
   return (
@@ -45,7 +50,7 @@ const NewPassword = () => {
               <div className=" relative">
                 <input
                   className=" mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-xl font-medium text-sm"
-                  type={showPassword ? "text" : "password"}
+                  type={showPassword1 ? "text" : "password"}
                   id="password"
                   name="password"
                   placeholder="Password"
@@ -53,9 +58,9 @@ const NewPassword = () => {
                 />
                 <div
                   className="absolute top-4 right-5 "
-                  onClick={TogglePassword}
+                  onClick={TogglePassword1}
                 >
-                  <img src={showPassword ? eye_icon : eye_icon1} />
+                  <img src={showPassword1 ? eye_icon : eye_icon1} />
                 </div>
               </div>
             </div>
