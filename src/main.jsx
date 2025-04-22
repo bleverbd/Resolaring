@@ -16,6 +16,12 @@ import Resolaring from './pages/resolaring/Resolaring.jsx';
 import Login from './pages/login/Login.jsx';
 import Cart from './pages/cart/Cart';
 import ViewProduct from './pages/marketplace/ViewProduct';
+import Option from './pages/login/Option';
+import EmailVerify from './pages/login/EmailVerify';
+import SendCode from './pages/login/SendCode';
+import NewPassword from './pages/login/NewPassword';
+import Seller from './pages/login/Seller';
+import Buyer from './pages/login/Buyer';
 
 const router = createBrowserRouter([
   {
@@ -60,9 +66,34 @@ const router = createBrowserRouter([
         element: <Login/>,
       },
       {
+        path: "/option",
+        element: <Option/>,
+      },
+      {
+        path: "/buyer",
+        element: <Buyer/>,
+      },
+      {
+        path: "/seller",
+        element: <Seller/>,
+      },
+      {
+        path: "/emailverify",
+        element: <EmailVerify/>,
+      },
+      {
+        path: "/sendcode",
+        element: <SendCode/>,
+      },
+      {
+        path: "/newpassword",
+        element: <NewPassword/>,
+      },
+      {
         path: "/marketplace/:id",
         element: <ViewProduct/>,
       },
+
     ],
   },
 ]);

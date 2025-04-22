@@ -5,33 +5,36 @@ import google from "../../assets/google.svg";
 import eye_icon1 from "../../assets/eye_icon.svg";
 import eye_icon from "../../assets/ey_icon.svg";
 import { useState } from "react";
-
 import { NavLink } from "react-router-dom";
 
-const Login = () => {
- 
+const Buyer = () => {
+  const [showPassword, setshowPassword] = useState(false);
+  const TogglePassword = () => {
+    setshowPassword(!showPassword);
+
+  };
 
 
-  const [showPassword,setshowPassword]=useState(false)
-  const TogglePassword=()=>{
-    setshowPassword(!showPassword)
-  }
+  const [showPassword1, setshowPassword1] = useState(false);
 
+  const TogglePassword1 = () => {
+    setshowPassword1(!showPassword1);
+  };
   return (
     <div className="font-Syne ">
       <div className="max-w-[1520px] my-0 mx-auto flex items-center gap-15 px-20">
         <div className="w-1/2 flex flex-col gap-5">
           <div>
-            <p className="text-[##071431] text-5xl font-semibold">
-              Welcome back!
-            </p>
-            <p className="text-[#6A7283] text-sm font-medium mt-2">
-              Enter your Credentials to access your account
-            </p>
-          </div>
-
-          <div>
-            <form className="flex flex-col gap-5" >
+            <form className="flex flex-col gap-5">
+              <div>
+                <label for="name">Name*</label>
+                <input
+                  className=" mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-xl font-medium text-sm"
+                  type="name"
+                  name="name"
+                  placeholder="Enter your name"
+                />
+              </div>
               <div>
                 <label for="email">Email*</label>
                 <input
@@ -39,33 +42,47 @@ const Login = () => {
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-              
                 />
-
               </div>
 
               <div>
-                <div className="flex items-center justify-between mt-5">
-                  <label for="password">Password*</label>
-                  <NavLink to="/emailverify"> <p className="text-[#B45C3D] text-sm underline">
-                    Forgot Password
-                  </p></NavLink>
+              <label for="password">Choose Password*</label>
+                <div className=" relative mt-2">
+                 
+                  <input
+                    className="focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-xl font-medium text-sm"
+                    type={showPassword ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                  />
+                  <div
+                    className="absolute top-3 right-5 "
+                    onClick={TogglePassword}
+                  >
+                    <img src={showPassword ? eye_icon : eye_icon1} />
+                  </div>
                 </div>
+              </div>
 
-                <div className="">
-                  <div className=" relative">
-                    <input
-                      className=" mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-xl font-medium text-sm"
-                      type={showPassword ? "text" : "password"}
-
-                      id="password"
-                      name="password"
-                      placeholder="Password"
-                      required
-                    />
-                    <div className="absolute top-4 right-5 " onClick={TogglePassword} >
-                      <img src={showPassword ? eye_icon : eye_icon1}/>
-                    </div>
+              <div>
+              <label for="password">Confirm Password*</label>
+                <div className=" relative mt-2">
+                 
+                  <input
+                    className="focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-xl font-medium text-sm"
+                    type={showPassword1 ? "text" : "password"}
+                    id="password"
+                    name="password"
+                    placeholder="Password"
+                    required
+                  />
+                  <div
+                    className="absolute top-3 right-5 "
+                    onClick={TogglePassword1}
+                  >
+                    <img src={showPassword1 ? eye_icon : eye_icon1} />
                   </div>
                 </div>
               </div>
@@ -73,13 +90,13 @@ const Login = () => {
               <div className="flex items-center gap-2">
                 <input type="checkbox" />
                 <p className="text-[#071431] text-sm font-medium">
-                  Remember Letter
+                I agree to the terms & policy
                 </p>
               </div>
 
               <div>
                 <button className="bg-bg-btn-color w-full rounded-4xl px-7 py-3 flex justify-center duration-300 hover:bg-white hover:outline-1 ">
-                  Sign in
+                  Sign Up
                 </button>
               </div>
             </form>
@@ -114,7 +131,10 @@ const Login = () => {
             <div className="mt-3 pl-20">
               <p className="text-[#071431] font-semibold">
                 Don’t have an account?{" "}
-                <NavLink to="/option"> <span className="text-[#B45C3D] font-semibold">Sign Up</span></NavLink>
+                <NavLink to="/login">
+                  {" "}
+                  <span className="text-[#B45C3D] font-semibold">Sign In</span>
+                </NavLink>
               </p>
             </div>
           </div>
@@ -131,4 +151,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Buyer;
