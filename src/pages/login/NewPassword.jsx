@@ -17,7 +17,7 @@ const NewPassword = () => {
   };
   return (
     <div>
-      <div className=" max-w-[1520px] my-0 mx-auto flex gap-10 items-center px-30">
+      <div className=" max-w-[1520px] my-0 mx-auto flex gap-10 items-center px-30 mt-20">
         <div className="flex flex-col gap-8 w-1/2 ">
           <p className="text-[##071431] text-5xl font-semibold">
             {" "}

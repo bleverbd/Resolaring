@@ -32,7 +32,7 @@ const Login = () => {
 
   return (
     <div className="font-Syne ">
-      <div className="max-w-[1520px] my-0 mx-auto flex items-center gap-15 px-20">
+      <div className="max-w-[1520px] my-0 mx-auto flex items-center gap-15 px-20 mt-20">
         <div className="w-1/2 flex flex-col gap-5">
           <div>
             <p className="text-[##071431] text-5xl font-semibold">

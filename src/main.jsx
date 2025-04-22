@@ -22,8 +22,46 @@ import SendCode from './pages/login/SendCode';
 import NewPassword from './pages/login/NewPassword';
 import Seller from './pages/login/Seller';
 import Buyer from './pages/login/Buyer';
+import Overview from './pages/product/Overview';
 
 const router = createBrowserRouter([
+
+
+  {
+    path: "/overview",
+    element:<Overview/>,
+  },
+
+  {
+    path: "/login",
+    element: <Login/>,
+  },
+  {
+    path: "/option",
+    element: <Option/>,
+  },
+  {
+    path: "/buyer",
+    element: <Buyer/>,
+  },
+  {
+    path: "/seller",
+    element: <Seller/>,
+  },
+  {
+    path: "/emailverify",
+    element: <EmailVerify/>,
+  },
+  {
+    path: "/sendcode",
+    element: <SendCode/>,
+  },
+  {
+    path: "/newpassword",
+    element: <NewPassword/>,
+  },
+
+
   {
     path: "/",
     element: <App/>,
@@ -62,40 +100,14 @@ const router = createBrowserRouter([
         element: <Cart/>,
       },
       {
-        path: "/login",
-        element: <Login/>,
-      },
-      {
-        path: "/option",
-        element: <Option/>,
-      },
-      {
-        path: "/buyer",
-        element: <Buyer/>,
-      },
-      {
-        path: "/seller",
-        element: <Seller/>,
-      },
-      {
-        path: "/emailverify",
-        element: <EmailVerify/>,
-      },
-      {
-        path: "/sendcode",
-        element: <SendCode/>,
-      },
-      {
-        path: "/newpassword",
-        element: <NewPassword/>,
-      },
-      {
         path: "/marketplace/:id",
         element: <ViewProduct/>,
       },
 
     ],
   },
+
+
 ]);
 
 createRoot(document.getElementById('root')).render(

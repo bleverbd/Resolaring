@@ -36,7 +36,7 @@ const Buyer = () => {
   };
   return (
     <div className="font-Syne ">
-      <div className="max-w-[1520px] my-0 mx-auto flex items-center gap-15 px-20">
+      <div className="max-w-[1520px] my-0 mx-auto flex items-center gap-15 px-20 mt-20">
         <div className="w-1/2 flex flex-col gap-5">
           <div>
             <form onSubmit={handleSubmit} className="flex flex-col gap-5">
