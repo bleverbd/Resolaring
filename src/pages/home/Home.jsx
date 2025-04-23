@@ -5,10 +5,10 @@ const Home = () => {
     <div>
       <p> This is Home Page</p>
 
-      <NavLink to="/overview">
+      {/* <NavLink to="/overview">
       <p> This is Over View Page</p>
 
-      </NavLink>
+      </NavLink> */}
 
     </div>
   );

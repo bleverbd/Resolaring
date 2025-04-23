@@ -22,15 +22,15 @@ import SendCode from './pages/login/SendCode';
 import NewPassword from './pages/login/NewPassword';
 import Seller from './pages/login/Seller';
 import Buyer from './pages/login/Buyer';
-import Overview from './pages/product/Overview';
+
+import Overview from './pages/dasboard/Overview';
+import Dashboard from './Dashboard';
+import OrderList from './pages/dasboard/OrderList';
+import AccountSettings from './pages/dasboard/AccountSettings';
+import AddNewListing from './pages/dasboard/AddNewListing';
+import ManageListings from './pages/dasboard/ManageListings';
 
 const router = createBrowserRouter([
-
-
-  {
-    path: "/overview",
-    element:<Overview/>,
-  },
 
   {
     path: "/login",
@@ -102,6 +102,34 @@ const router = createBrowserRouter([
       {
         path: "/marketplace/:id",
         element: <ViewProduct/>,
+      },
+
+    ],
+  },
+
+  {
+    path: "/dashboard",
+    element:<Dashboard/>,
+    children: [
+      { path: "",
+        element:<Overview/>
+      },
+
+      { path: "orderlist", 
+        element: <OrderList/>
+      },
+
+      
+      { path: "accountsetting", 
+        element:<AccountSettings/>
+      },
+      
+      { path: "addnewlisting", 
+        element: <AddNewListing/>
+      },
+      
+      { path: "managelisting", 
+        element: <ManageListings/>
       },
 
     ],
