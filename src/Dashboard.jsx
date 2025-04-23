@@ -4,9 +4,9 @@ import DashNavbar from "./components/dasboard/DashNavbar";
 
 function Dashboard() {
   return (
-    <div className="flex gap-10"> 
+    <div className="flex"> 
         <DashNavbar /> 
-        <Outlet />
+        <Outlet/>
 
     </div>
   );
