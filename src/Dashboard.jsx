@@ -5,7 +5,7 @@ import DashNavbar from "./components/dasboard/DashNavbar";
 function Dashboard() {
   return (
     <div className="flex"> 
-        <DashNavbar /> 
+        <DashNavbar/> 
         <Outlet/>
 
     </div>

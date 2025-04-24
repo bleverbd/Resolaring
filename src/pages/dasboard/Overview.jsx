@@ -25,6 +25,15 @@ import {
 } from "@/components/ui/table";
 import Status from "@/components/dasboard/Status";
 
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+
 const orders = [
   {
     orderId: "#10001",
@@ -357,26 +366,46 @@ const Overview = () => {
   const [endIndex, setEndIndex] = useState(rowsPerPage);
 
   return (
-    <div className="font-Syne w-full mt-[48px] mx-[48px]">
+    <div className="font-Syne w-full pt-[48px] px-[48px]">
       <div className="flex flex-col gap-12">
         {/* Top Nav Bar */}
-        <div className="flex items-center justify-between">
+        <div className="hidden  xl:flex xl:items-center xl:justify-between">
+
+          <div className="xl:hidden">
+            <div>
+              <p className="text-[#071431] font-semibold text-[40px]">
+                Overview
+              </p>
+            </div>
+            <div>
+              <Sheet>
+                <SheetTrigger>Open</SheetTrigger>
+                <SheetContent>
+                  <SheetHeader>
+                    <SheetTitle>Are you absolutely sure?</SheetTitle>
+                    <SheetDescription>
+                      This action cannot be undone. This will permanently delete
+                      your account and remove your data from our servers.
+                    </SheetDescription>
+                  </SheetHeader>
+                </SheetContent>
+              </Sheet>
+            </div>
+          </div>
           <div>
-            <p className="text-[#071431] font-semibold text-[40px]">
-              {" "}
-              Overview
-            </p>
+            <p className="text-[#071431] font-semibold text-[40px]">Overview</p>
           </div>
 
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-5 ">
             <SearchItem />
             <Addbtn />
             <Profile />
           </div>
         </div>
+
         {/* Card Option */}
-        <div className="flex items-center justify-between">
-          <div className="bg-[#F8EFEC] rounded-xl px-6 py-6 w-[350px]">
+        <div className="xl:flex xl:items-center xl:gap-5 2xl:justify-between grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 ">
+          <div className="bg-[#F8EFEC] rounded-xl px-6 py-6 w-full xl:w-[350px]">
             <p className="text-[#6A7283] text-2xl font-medium">
               {" "}
               Total Listing
@@ -384,7 +413,7 @@ const Overview = () => {
             <p className="text-[#1D2635] text-3xl font-semibold">{15}</p>
           </div>
 
-          <div className="bg-[#FFF9E6] rounded-xl px-6 py-6 w-[350px]">
+          <div className="bg-[#FFF9E6] rounded-xl px-6 py-6 w-full xl:w-[350px]">
             <p className="text-[#6A7283] text-2xl font-medium">
               {" "}
               Pending Orders
@@ -392,7 +421,7 @@ const Overview = () => {
             <p className="text-[#1D2635] text-3xl font-semibold">{3}</p>
           </div>
 
-          <div className="bg-[#EBF7EF] rounded-xl px-6 py-6 w-[350px]">
+          <div className="bg-[#EBF7EF] rounded-xl px-6 py-6 w-full xl:w-[350px]">
             <p className="text-[#6A7283] text-2xl font-medium">
               {" "}
               Sales Revenue
@@ -400,7 +429,7 @@ const Overview = () => {
             <p className="text-[#1D2635] text-3xl font-semibold">$5,000</p>
           </div>
 
-          <div className="bg-[#FAEDFF] rounded-xl px-6 py-6 w-[350px]">
+          <div className="bg-[#FAEDFF] rounded-xl px-6 py-6 w-full xl:w-[350px]">
             <p className="text-[#6A7283] text-2xl font-medium">
               {" "}
               Profile Completion
@@ -537,7 +566,9 @@ const Overview = () => {
                       <PaginationLink
                         href="#"
                         className={`${
-                          isActive ? "bg-[#B45C3D]  text-white" : " text-[#071431] border border-[#DFE0E4]  "
+                          isActive
+                            ? "bg-[#B45C3D]  text-white"
+                            : " text-[#071431] border border-[#DFE0E4]  "
                         } px-3 py-3 w-[45px] h-[45px] rounded-lg transition font-Syne text-[22px] font-bold`}
                         onClick={() => {
                           setStartIndex(pageIndex * rowsPerPage);

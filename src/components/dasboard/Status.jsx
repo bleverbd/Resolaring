@@ -19,7 +19,7 @@ const Status = ({ States }) => {
   return (
     <div>
       <p
-        className={`${textColor} ${borderColor} text-lg  outline rounded-4xl w-3/4 px-2 py-2 text-center`}
+        className={`${textColor} ${borderColor} text-lg   outline rounded-4xl xl:w-3/4 w-full px-2 lg:py-2 py-1 text-center`}
       >
         {States}
       </p>

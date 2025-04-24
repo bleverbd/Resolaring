@@ -50,7 +50,7 @@ const DasNavItem = () => {
 
 const DashNavbar = () => {
   return (
-    <div className="font-Syne">
+    <div className="font-Syne hidden xl:block ">
       <div className="w-[351px] bg-[#071431] h-screen text-white">
         <div className=" pt-[48px]  pb-[73px] h-screen flex flex-col justify-between">
           <div>

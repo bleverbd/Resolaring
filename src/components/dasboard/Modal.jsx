@@ -48,7 +48,7 @@ const Modal = ({ isOpen, onClose, orderData}) => {
            <div className="flex items-center justify-between mt-[50px] px-[64px]">
                 <div><p className="text-[#0F2A5C] text-3xl font-semibold">Product Order Details</p></div>
                 <div className="flex items-center gap-10">
-                    <div className="flex gap-2 items-center">
+                    <div className="flex gap-2 items-center cursor-pointer">
                         <img src={print}/> 
                         <p className="text-[#B45C3D] font-semibold text-[20px]"> Print </p>
                     </div>
