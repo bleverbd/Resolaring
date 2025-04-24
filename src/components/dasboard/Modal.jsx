@@ -5,8 +5,9 @@ import print from "../../assets/overview/printer.svg";
 import download from "../../assets/overview/download.svg";
 
 
-const Modal = ({ isOpen, onClose }) => {
+const Modal = ({ isOpen, onClose, orderData}) => {
   const modalRef = useRef();
+
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -64,7 +65,7 @@ const Modal = ({ isOpen, onClose }) => {
 
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Order ID:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.orderId}</p>
                 
             </div>
 
@@ -72,65 +73,65 @@ const Modal = ({ isOpen, onClose }) => {
 
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Date:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.date}</p>
                 
             </div>
 
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Product name:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.productName}</p>
                 
             </div>
 
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Buyer Name:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.buyerName}</p>
                 
             </div>
 
 
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Email:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.email}</p>
                 
             </div>
 
 
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Phone:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.phone}</p>
                 
             </div>
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Country:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.country}</p>
                 
             </div>
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">City:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.city}</p>
                 
             </div>
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Zip Code:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.zipCode}</p>
                 
             </div>
 
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">State:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.state}</p>
                 
             </div>
 
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Delivery Address:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.deliveryAddress}</p>
                 
             </div>
             <div className="flex items-center border-b-2 border-b-[#EBECEF] py-2">
                 <p className="w-50 text-[#071431] text-[20px]">Shipping Fee:</p>
-                <p className="text-[#798090] text-[20px]">#10001</p>
+                <p className="text-[#798090] text-[20px]">{orderData.shippingFee}</p>
                 
             </div>
 
