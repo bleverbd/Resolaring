@@ -2,12 +2,25 @@ import React from "react";
 import { useState } from "react";
 import eye_icon1 from "../../assets/eye_icon.svg";
 import eye_icon from "../../assets/ey_icon.svg";
+import plusicon from "../../assets/overview/accountSetting/plus.svg";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import profile_pic from "../../assets/overview/accountSetting/profile_pic.png";
 import crop from "../../assets/overview/accountSetting/crop.svg";
 import deleted from "../../assets/overview/accountSetting/delete.svg";
 import icon from "../../assets/overview/accountSetting/icon.svg";
 import thick from "../../assets/overview/accountSetting/thik.svg";
+import paypal from "../../assets/overview/accountSetting/paypal.svg";
+import visa from "../../assets/overview/accountSetting/express.svg";
+import express from "../../assets/overview/accountSetting/visa.svg";
+import master from "../../assets/overview/accountSetting/master.svg";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 import {
   Accordion,
   AccordionContent,
@@ -695,38 +708,168 @@ const AccountSettings = () => {
                   <div className="flex gap-12 items-center">
                     <div>
                       <Dialog>
-                        <DialogTrigger className="hover:text-black  text-[#6A7283] text-xl underline cursor-pointer">Edit</DialogTrigger>
-
+                        <DialogTrigger className="hover:text-black  text-[#6A7283] text-xl underline cursor-pointer">
+                          Edit
+                        </DialogTrigger>
 
                         <DialogContent>
                           <div className="px-5 w-[1060px]">
-                            <p className="text-[#071431] text-3xl font-semibold mt-3">Add New Address</p>
-                            <hr className="mt-8"/>
+                            <p className="text-[#071431] text-3xl font-semibold mt-3">
+                              Add New Address
+                            </p>
+                            <hr className="mt-5" />
 
-
-
-
-                            <div className="mt-8">
+                            <div className=" font-Syne flex flex-col gap-2 mt-3">
                               <div className="flex items-center justify-between gap-8">
-                              <div className="w-1/2">
-                              <label className="text-[#0B0B0B] text-lg  font-semibold"> First name*</label>
-                              <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                              <input className="text-[#6A7283]  focus: outline-none "type="text" placeholder="John"/>
-                              </div>
+                                <div className="w-1/2">
+                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                    {" "}
+                                    First name*
+                                  </label>
+                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                    <input
+                                      className="text-[#6A7283]  focus: outline-none "
+                                      type="text"
+                                      placeholder="John"
+                                    />
+                                  </div>
+                                </div>
+
+                                <div className="w-1/2">
+                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                    {" "}
+                                    Last name*
+                                  </label>
+                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                    <input
+                                      className="text-[#6A7283]  focus: outline-none "
+                                      type="text"
+                                      placeholder="Doe"
+                                    />
+                                  </div>
+                                </div>
                               </div>
 
-                              <div className="w-1/2">
-                              <label className="text-[#0B0B0B] text-lg  font-semibold"> Last name*</label>
-                              <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                              <input className="text-[#6A7283]  focus: outline-none "type="text" placeholder="Doe"/>
-                              </div>
-                              </div>
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  Company name
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="Company"
+                                  />
+                                </div>
                               </div>
 
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  Address
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="New York"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  Address line-2
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="New York"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  City
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="New York"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  Country
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="Bangladesh"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="flex items-center justify-between gap-8 ">
+                                <div className="w-1/2">
+                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                    {" "}
+                                    Zip / Postal code
+                                  </label>
+                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                    <input
+                                      className="text-[#6A7283]  focus: outline-none "
+                                      type="text"
+                                      placeholder="123"
+                                    />
+                                  </div>
+                                </div>
+
+                                <div className="w-1/2">
+                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                    Phone
+                                  </label>
+                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                    <input
+                                      className="text-[#6A7283]  focus: outline-none "
+                                      type="tel"
+                                      placeholder="014535856614556"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="flex gap-2 items-center ">
+                                <input
+                                  className="w-5 h-5 accent-[#2FA75F]"
+                                  type="checkbox"
+                                />
+                                <label> Make this my default address</label>
+                              </div>
+                              <div className="flex gap-5 items-center justify-end w-full">
+                                <div className="outline outline-[#071431] rounded-4xl px-8 py-3 cursor-pointer ">
+                                  <button className="text-[#071431] font-medium cursor-pointer">
+                                    Cancel
+                                  </button>
+                                </div>
+                                <div className="rounded-4xl px-5 py-3 bg-[#B45C3D] cursor-pointer ">
+                                  <button className="text-white font-medium cursor-pointer">
+                                    Add Address
+                                  </button>
+                                </div>
+                              </div>
                             </div>
                           </div>
-
-
                         </DialogContent>
                       </Dialog>
                     </div>
@@ -761,7 +904,549 @@ const AccountSettings = () => {
               </div>
             </TabsContent>
 
-            <TabsContent value="wallet">Change your wallet here.</TabsContent>
+            <TabsContent value="wallet">
+              <div>
+                <div className="w-1/2">
+                  <p className="text-[#071431] text-3xl font-semibold">
+                    Wallet
+                  </p>
+                  <p className="text-[#6A7283] text-xl mt-2">
+                    Save your payment details for faster checkout.
+                  </p>
+                </div>
+
+                <hr className="mt-[48px]" />
+
+                <div className="mt-[48px] text-[#6A7283] text-xl">
+                  John Doe <br />
+                  Company name <br />
+                  New York, 1212 <br />
+                  USA <br />
+                  +44 20 3769 7855 <br />
+                </div>
+
+                <div className="flex items-center justify-between mt-2">
+                  <div className="flex gap-12 items-center">
+                    <div>
+                      <Dialog>
+                        <DialogTrigger className="hover:text-black  text-[#6A7283] text-xl underline cursor-pointer">
+                          Edit
+                        </DialogTrigger>
+
+                        <DialogContent>
+                          <div className="px-5 w-[1060px]">
+                            <p className="text-[#071431] text-3xl font-semibold mt-3">
+                              Add New Address
+                            </p>
+                            <hr className="mt-5" />
+
+                            <div className=" font-Syne flex flex-col gap-2 mt-3">
+                              <div className="flex items-center justify-between gap-8">
+                                <div className="w-1/2">
+                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                    {" "}
+                                    First name*
+                                  </label>
+                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                    <input
+                                      className="text-[#6A7283]  focus: outline-none "
+                                      type="text"
+                                      placeholder="John"
+                                    />
+                                  </div>
+                                </div>
+
+                                <div className="w-1/2">
+                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                    {" "}
+                                    Last name*
+                                  </label>
+                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                    <input
+                                      className="text-[#6A7283]  focus: outline-none "
+                                      type="text"
+                                      placeholder="Doe"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  Company name
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="Company"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  Address
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="New York"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  Address line-2
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="New York"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  City
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="New York"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  Country
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="Bangladesh"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="flex items-center justify-between gap-8 ">
+                                <div className="w-1/2">
+                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                    {" "}
+                                    Zip / Postal code
+                                  </label>
+                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                    <input
+                                      className="text-[#6A7283]  focus: outline-none "
+                                      type="text"
+                                      placeholder="123"
+                                    />
+                                  </div>
+                                </div>
+
+                                <div className="w-1/2">
+                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                    Phone
+                                  </label>
+                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                    <input
+                                      className="text-[#6A7283]  focus: outline-none "
+                                      type="tel"
+                                      placeholder="014535856614556"
+                                    />
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div className="flex gap-2 items-center ">
+                                <input
+                                  className="w-5 h-5 accent-[#2FA75F]"
+                                  type="checkbox"
+                                />
+                                <label> Make this my default address</label>
+                              </div>
+                              <div className="flex gap-5 items-center justify-end w-full">
+                                <div className="outline outline-[#071431] rounded-4xl px-8 py-3 cursor-pointer ">
+                                  <button className="text-[#071431] font-medium cursor-pointer">
+                                    Cancel
+                                  </button>
+                                </div>
+                                <div className="rounded-4xl px-5 py-3 bg-[#B45C3D] cursor-pointer ">
+                                  <button className="text-white font-medium cursor-pointer">
+                                    Add Address
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </DialogContent>
+                      </Dialog>
+                    </div>
+
+                    <div>
+                      <button className="hover:text-black  text-[#6A7283] text-xl underline cursor-pointer">
+                        Remove
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex gap-2  items-center ">
+                    <img src={thick} />
+                    <p className="text-[#6A7283]  text-xl">Default Address</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-6 flex-col items-center mt-18">
+                  <div className="">
+                    <p className="text-[#071431] text-2xl">
+                      You haven’t saved any payment methods yet
+                    </p>
+                    <p className="text-[#6A7283]">
+                      {" "}
+                      Securely save your payment details for faster checkout
+                      whenever you place an order.
+                    </p>
+                  </div>
+                  <div>
+                    <Dialog>
+                      <DialogTrigger>
+                        <div className="cursor-pointer bg-[#B45C3D] px-8 py-4 rounded-4xl flex items-center gap-2">
+                          <img src={plusicon} />
+                          <button className="cursor-pointer text-white">
+                            Add Payment Method
+                          </button>
+                        </div>
+                      </DialogTrigger>
+
+                      <DialogContent>
+                        <div className="px-5 w-[1060px]">
+                          <p className="text-[#071431] text-3xl font-semibold mt-3">
+                            Add payment method
+                          </p>
+                          <hr className="mt-5" />
+
+                          <div className=" font-Syne flex flex-col gap-2 mt-3">
+                            <div className="flex items-center justify-between gap-8">
+                              <div className="w-full ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  Card number
+                                </label>
+
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2 relative">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="Enter number"
+                                  />
+                                  <div className="flex gap-2 items-center absolute top-3 right-5">
+                                    <div>
+                                      <img src={paypal} />
+                                    </div>
+                                    <div>
+                                      <img src={master} />
+                                    </div>
+                                    <div>
+                                      <img src={visa} />
+                                    </div>
+                                    <div>
+                                      <img src={express} />
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex gap-8 items-center">
+                              <div className="w-1/2 ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  Expiration date
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="MM/YY"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-1/2">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  CVV/CVC
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="3-4 digits"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="w-full ">
+                              <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                {" "}
+                                Cardholder name
+                              </label>
+                              <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                <input
+                                  className="text-[#6A7283]  focus: outline-none "
+                                  type="text"
+                                  placeholder="Enter name"
+                                />
+                              </div>
+                            </div>
+
+                            <div className="w-full ">
+                              <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                {" "}
+                                Email
+                              </label>
+                              <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                <input
+                                  className="text-[#6A7283]  focus: outline-none "
+                                  type="email"
+                                  placeholder="johndoe@gmail.com"
+                                />
+                              </div>
+                            </div>
+
+                            <div className="flex gap-8 items-center">
+                              <div className="w-1/2 ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  First Name
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="Enter Your Name"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-1/2">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  Last Name
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="Enter Your Last Name"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex gap-8 items-center">
+                              <div className="w-1/2 ">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  Address
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="Enter Your Address"
+                                  />
+                                </div>
+                              </div>
+
+                              <div className="w-1/2">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  City
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="Enter Your Last City"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex items-center justify-between gap-8 ">
+                              <div className="w-1/2">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  {" "}
+                                  Country
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-2 rounded-lg mt-2 font-Syne font-medium text-lg">
+                                  <Select defaultValue="bd">
+                                    <SelectTrigger className=" flex w-full border-none shodow-none text-[#6A7283]">
+                                      <SelectValue
+                                        placeholder="Theme"
+                                        className="text-[#6A7283]"
+                                      />
+                                    </SelectTrigger>
+
+                                    <SelectContent className="focus:ring-0 h-screen overflow-y-auto">
+                                      <SelectItem value="bd">
+                                        Bangladesh
+                                      </SelectItem>
+                                      <SelectItem value="uk">
+                                        United Kingdom
+                                      </SelectItem>
+                                      <SelectItem value="us">
+                                        United States
+                                      </SelectItem>
+                                      <SelectItem value="ca">Canada</SelectItem>
+                                      <SelectItem value="au">
+                                        Australia
+                                      </SelectItem>
+                                      <SelectItem value="in">India</SelectItem>
+                                      <SelectItem value="de">
+                                        Germany
+                                      </SelectItem>
+                                      <SelectItem value="fr">France</SelectItem>
+                                      <SelectItem value="jp">Japan</SelectItem>
+                                      <SelectItem value="cn">China</SelectItem>
+                                      <SelectItem value="br">Brazil</SelectItem>
+                                      <SelectItem value="za">
+                                        South Africa
+                                      </SelectItem>
+                                      <SelectItem value="ru">Russia</SelectItem>
+                                      <SelectItem value="it">Italy</SelectItem>
+                                      <SelectItem value="es">Spain</SelectItem>
+                                      <SelectItem value="mx">Mexico</SelectItem>
+                                      <SelectItem value="kr">
+                                        South Korea
+                                      </SelectItem>
+                                      <SelectItem value="sa">
+                                        Saudi Arabia
+                                      </SelectItem>
+                                      <SelectItem value="ar">
+                                        Argentina
+                                      </SelectItem>
+                                      <SelectItem value="eg">Egypt</SelectItem>
+                                      <SelectItem value="tr">Turkey</SelectItem>
+                                      <SelectItem value="nl">
+                                        Netherlands
+                                      </SelectItem>
+                                      <SelectItem value="se">Sweden</SelectItem>
+                                      <SelectItem value="ch">
+                                        Switzerland
+                                      </SelectItem>
+                                      <SelectItem value="no">Norway</SelectItem>
+                                      <SelectItem value="be">
+                                        Belgium
+                                      </SelectItem>
+                                      <SelectItem value="th">
+                                        Thailand
+                                      </SelectItem>
+                                      <SelectItem value="ng">
+                                        Nigeria
+                                      </SelectItem>
+                                      <SelectItem value="pk">
+                                        Pakistan
+                                      </SelectItem>
+                                      <SelectItem value="ph">
+                                        Philippines
+                                      </SelectItem>
+                                      <SelectItem value="pl">Poland</SelectItem>
+                                      <SelectItem value="ua">
+                                        Ukraine
+                                      </SelectItem>
+                                      <SelectItem value="my">
+                                        Malaysia
+                                      </SelectItem>
+                                      <SelectItem value="id">
+                                        Indonesia
+                                      </SelectItem>
+                                      <SelectItem value="vn">
+                                        Vietnam
+                                      </SelectItem>
+                                      <SelectItem value="ir">Iran</SelectItem>
+                                      <SelectItem value="iq">Iraq</SelectItem>
+                                      <SelectItem value="ae">
+                                        United Arab Emirates
+                                      </SelectItem>
+                                      <SelectItem value="nz">
+                                        New Zealand
+                                      </SelectItem>
+                                      <SelectItem value="dk">
+                                        Denmark
+                                      </SelectItem>
+                                      <SelectItem value="at">
+                                        Austria
+                                      </SelectItem>
+                                      <SelectItem value="gr">Greece</SelectItem>
+                                      <SelectItem value="cz">
+                                        Czech Republic
+                                      </SelectItem>
+                                      <SelectItem value="hu">
+                                        Hungary
+                                      </SelectItem>
+                                      <SelectItem value="ro">
+                                        Romania
+                                      </SelectItem>
+                                      <SelectItem value="pt">
+                                        Portugal
+                                      </SelectItem>
+                                      <SelectItem value="il">Israel</SelectItem>
+                                      <SelectItem value="sg">
+                                        Singapore
+                                      </SelectItem>
+                                    </SelectContent>
+                                  </Select>
+                                </div>
+                                {/* <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="text"
+                                    placeholder="USA"
+                                  />
+                                  </div> */}
+                              </div>
+
+                              <div className="w-1/2">
+                                <label className="text-[#0B0B0B] text-lg  font-semibold">
+                                  Postal Code
+                                </label>
+                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
+                                  <input
+                                    className="text-[#6A7283]  focus: outline-none "
+                                    type="tel"
+                                    placeholder="12456"
+                                  />
+                                </div>
+                              </div>
+                            </div>
+
+                            <div className="flex gap-5 items-center justify-end w-full mt-2">
+                              <div className="outline outline-[#071431] rounded-4xl px-8 py-3 cursor-pointer ">
+                                <button className="text-[#071431] font-medium cursor-pointer">
+                                  Cancel
+                                </button>
+                              </div>
+                              <div className="rounded-4xl px-5 py-3 bg-[#B45C3D] cursor-pointer ">
+                                <button className="text-white font-medium cursor-pointer">
+                                  Add Payment Methods
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  </div>
+                </div>
+              </div>
+            </TabsContent>
           </Tabs>
         </div>
       </div>
