@@ -4,6 +4,8 @@ import SearchItem from "@/components/dasboard/SearchItem";
 import React, { useState } from "react";
 import Modal from "@/components/dasboard/Modal";
 
+
+
 import {
   Pagination,
   PaginationContent,
@@ -25,14 +27,7 @@ import {
 } from "@/components/ui/table";
 import Status from "@/components/dasboard/Status";
 
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+
 
 const orders = [
   {
@@ -366,32 +361,10 @@ const Overview = () => {
   const [endIndex, setEndIndex] = useState(rowsPerPage);
 
   return (
-    <div className="font-Syne w-full pt-[48px] px-[48px]">
+    <div className="font-Syne w-full pt-[48px] xl:px-[48px] px-[10px]">
       <div className="flex flex-col gap-12">
         {/* Top Nav Bar */}
         <div className="hidden  xl:flex xl:items-center xl:justify-between">
-
-          <div className="xl:hidden">
-            <div>
-              <p className="text-[#071431] font-semibold text-[40px]">
-                Overview
-              </p>
-            </div>
-            <div>
-              <Sheet>
-                <SheetTrigger>Open</SheetTrigger>
-                <SheetContent>
-                  <SheetHeader>
-                    <SheetTitle>Are you absolutely sure?</SheetTitle>
-                    <SheetDescription>
-                      This action cannot be undone. This will permanently delete
-                      your account and remove your data from our servers.
-                    </SheetDescription>
-                  </SheetHeader>
-                </SheetContent>
-              </Sheet>
-            </div>
-          </div>
           <div>
             <p className="text-[#071431] font-semibold text-[40px]">Overview</p>
           </div>
@@ -402,6 +375,10 @@ const Overview = () => {
             <Profile />
           </div>
         </div>
+
+       
+
+        
 
         {/* Card Option */}
         <div className="xl:flex xl:items-center xl:gap-5 2xl:justify-between grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 ">
@@ -479,7 +456,7 @@ const Overview = () => {
                     </TableCell>
                     <TableCell className=" text-[#071431]  py-4 text-lg">
                       <div className="flex gap-2 items-center">
-                        <div className="overflow-hidden">
+                        <div className="overflow-hidden w-[32px] h-[32px]">
                           <img
                             className="object-cover rounded-full w-[32px] h-[32px]"
                             src={order.profilePicture}
