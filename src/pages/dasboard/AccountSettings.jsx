@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import thick from "../../assets/overview/accountSetting/thik.svg";
 import eye_icon1 from "../../assets/eye_icon.svg";
 import eye_icon from "../../assets/ey_icon.svg";
 import plusicon from "../../assets/overview/accountSetting/plus.svg";
@@ -8,7 +9,7 @@ import profile_pic from "../../assets/overview/accountSetting/profile_pic.png";
 import crop from "../../assets/overview/accountSetting/crop.svg";
 import deleted from "../../assets/overview/accountSetting/delete.svg";
 import icon from "../../assets/overview/accountSetting/icon.svg";
-import thick from "../../assets/overview/accountSetting/thik.svg";
+
 import paypal from "../../assets/overview/accountSetting/paypal.svg";
 import visa from "../../assets/overview/accountSetting/express.svg";
 import express from "../../assets/overview/accountSetting/visa.svg";
@@ -35,6 +36,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import ProfilePictureUploader from "@/components/dasboard/ProfilePictureUploader";
+import Address from "@/components/dasboard/Address";
 
 const AccountSettings = () => {
   const [showPassword, setshowPassword] = useState(false);
@@ -122,7 +125,7 @@ const AccountSettings = () => {
                   </div>
 
                   <div className=" flex gap-[48px] mt-8">
-                    <div className="w-full">
+                    <div className="w-1/2">
                       <div>
                         <div>
                           {" "}
@@ -130,7 +133,7 @@ const AccountSettings = () => {
                         </div>
                         <div className="bg-[#F5F6F7] border border-[#DFE0E4] rounded-md px-5 py-2 mt-2">
                           <input
-                            className="text=[#6A7283] focus:outline-none"
+                            className="text=[#6A7283] focus:outline-none w-full"
                             type="text"
                             placeholder="John Doe"
                           />
@@ -140,7 +143,7 @@ const AccountSettings = () => {
                         <p className="text-[#071431 font-lg]">Title</p>
                         <div className="bg-[#F5F6F7] border border-[#DFE0E4] rounded-md px-5 py-2 mt-2">
                           <input
-                            className="text=[#6A7283] focus:outline-none"
+                            className="text=[#6A7283] focus:outline-none w-full"
                             type="text"
                             placeholder="Businessman"
                           />
@@ -148,33 +151,42 @@ const AccountSettings = () => {
                       </div>
                     </div>
 
-                    <div className="flex  flex-col gap-5 w-full">
+                    <div className="flex flex-col items-cente">
+
                       <div className="flex items-center gap-2">
                         <p className="text-[#6A7283]">Profile image</p>
                         <img src={icon} />
                       </div>
 
-                      <div className="relative">
+                      {/* <div className="relative">
                         <img
                           className="w-[100px] h-[100px] rounded-full "
                           src={profile_pic}
                         />
 
                         <div>
-                          {" "}
+                          <button className="cursor-pointer">
+                          <input type="file" />
                           <img
                             className="absolute top-11 left-2 cursor-pointer"
                             src={crop}
                           />
+                          </button>
                         </div>
                         <div>
-                          {" "}
+                       
                           <img
                             className="absolute top-11 left-19 cursor-pointer"
                             src={deleted}
                           />{" "}
                         </div>
+                      </div> */}
+                      <div> 
+                        <ProfilePictureUploader/>
                       </div>
+
+
+
                     </div>
                   </div>
                 </div>
@@ -201,7 +213,7 @@ const AccountSettings = () => {
                           </div>
                           <div className="bg-[#F5F6F7] border border-[#DFE0E4] rounded-md px-5 py-2 mt-2">
                             <input
-                              className="text=[#6A7283] focus:outline-none"
+                              className="text=[#6A7283] focus:outline-none w-full"
                               type="text"
                               placeholder="John Doe"
                             />
@@ -214,7 +226,7 @@ const AccountSettings = () => {
                           </div>
                           <div className="bg-[#F5F6F7] border border-[#DFE0E4] rounded-md px-5 py-2 mt-2">
                             <input
-                              className="text=[#6A7283] focus:outline-none"
+                              className="text=[#6A7283] focus:outline-none w-full"
                               type="text"
                               placeholder="John Doe"
                             />
@@ -225,18 +237,19 @@ const AccountSettings = () => {
                           <p className="text-[#071431 font-lg]">Phone</p>
                           <div className="bg-[#F5F6F7] border border-[#DFE0E4] rounded-md px-5 py-2 mt-2">
                             <input
-                              className="text=[#6A7283] focus:outline-none"
+                              className="text=[#6A7283] focus:outline-none w-full"
                               type="tel"
                               placeholder="12456789786"
                             />
                           </div>
                         </div>
                       </div>
+
                     </div>
                   </div>
 
-                  <div className="w-full mt-8 flex justify-end">
-                    <div className="flex gap-3 items-center w-1/2">
+                  <div className="w-[90%] mt-8 flex justify-end  gap-4">
+                    <div className="flex gap-3 items-center ">
                       <div className="outline outline-[#071431] rounded-4xl px-5 py-3 cursor-pointer ">
                         <button className="text-[#071431] font-medium cursor-pointer">
                           Discard
@@ -307,7 +320,7 @@ const AccountSettings = () => {
                                   New email
                                 </label>
                                 <input
-                                  className=" mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-lg font-medium text-sm"
+                                  className=" w-full mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-lg font-medium text-sm"
                                   type="email"
                                   name="email"
                                   placeholder="johndoe@gmail.com"
@@ -323,7 +336,7 @@ const AccountSettings = () => {
                                   Confirm new email
                                 </label>
                                 <input
-                                  className=" mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-lg font-medium text-sm"
+                                  className=" w-full mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-lg font-medium text-sm"
                                   type="email"
                                   name="email"
                                   placeholder="johndoe@gmail.com"
@@ -340,7 +353,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className=" relative">
                                   <input
-                                    className=" mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-lg font-medium text-sm"
+                                    className=" w-full mt-2 focus:outline-none border border-[#DFE0E4] bg-[#F5F6F7] focus:ring-2 w-full text-[#6A7283] px-5 py-3 rounded-lg font-medium text-sm"
                                     type={showPassword ? "text" : "password"}
                                     id="password"
                                     name="password"
@@ -684,225 +697,11 @@ const AccountSettings = () => {
             {/* End Of My Account  */}
 
             <TabsContent value="addresses" className=" font-Syne mt-5 w-full">
-              <div>
-                <div className="w-1/2">
-                  <p className="text-[#071431] text-3xl font-semibold">
-                    My Addresses
-                  </p>
-                  <p className="text-[#6A7283] text-xl mt-2">
-                    Add and manage the addresses you use often.
-                  </p>
-                </div>
-
-                <hr className="mt-[48px]" />
-
-                <div className="mt-[48px] text-[#6A7283] text-xl">
-                  John Doe <br />
-                  Company name <br />
-                  New York, 1212 <br />
-                  USA <br />
-                  +44 20 3769 7855 <br />
-                </div>
-
-                <div className="flex items-center justify-between mt-2">
-                  <div className="flex gap-12 items-center">
-                    <div>
-                      <Dialog>
-                        <DialogTrigger className="hover:text-black  text-[#6A7283] text-xl underline cursor-pointer">
-                          Edit
-                        </DialogTrigger>
-
-                        <DialogContent>
-                          <div className="px-5 w-[1060px]">
-                            <p className="text-[#071431] text-3xl font-semibold mt-3">
-                              Add New Address
-                            </p>
-                            <hr className="mt-5" />
-
-                            <div className=" font-Syne flex flex-col gap-2 mt-3">
-                              <div className="flex items-center justify-between gap-8">
-                                <div className="w-1/2">
-                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
-                                    {" "}
-                                    First name*
-                                  </label>
-                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                                    <input
-                                      className="text-[#6A7283]  focus: outline-none "
-                                      type="text"
-                                      placeholder="John"
-                                    />
-                                  </div>
-                                </div>
-
-                                <div className="w-1/2">
-                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
-                                    {" "}
-                                    Last name*
-                                  </label>
-                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                                    <input
-                                      className="text-[#6A7283]  focus: outline-none "
-                                      type="text"
-                                      placeholder="Doe"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div className="w-full ">
-                                <label className="text-[#0B0B0B] text-lg  font-semibold">
-                                  {" "}
-                                  Company name
-                                </label>
-                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                                  <input
-                                    className="text-[#6A7283]  focus: outline-none "
-                                    type="text"
-                                    placeholder="Company"
-                                  />
-                                </div>
-                              </div>
-
-                              <div className="w-full ">
-                                <label className="text-[#0B0B0B] text-lg  font-semibold">
-                                  {" "}
-                                  Address
-                                </label>
-                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                                  <input
-                                    className="text-[#6A7283]  focus: outline-none "
-                                    type="text"
-                                    placeholder="New York"
-                                  />
-                                </div>
-                              </div>
-
-                              <div className="w-full ">
-                                <label className="text-[#0B0B0B] text-lg  font-semibold">
-                                  {" "}
-                                  Address line-2
-                                </label>
-                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                                  <input
-                                    className="text-[#6A7283]  focus: outline-none "
-                                    type="text"
-                                    placeholder="New York"
-                                  />
-                                </div>
-                              </div>
-
-                              <div className="w-full ">
-                                <label className="text-[#0B0B0B] text-lg  font-semibold">
-                                  {" "}
-                                  City
-                                </label>
-                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                                  <input
-                                    className="text-[#6A7283]  focus: outline-none "
-                                    type="text"
-                                    placeholder="New York"
-                                  />
-                                </div>
-                              </div>
-
-                              <div className="w-full ">
-                                <label className="text-[#0B0B0B] text-lg  font-semibold">
-                                  {" "}
-                                  Country
-                                </label>
-                                <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                                  <input
-                                    className="text-[#6A7283]  focus: outline-none "
-                                    type="text"
-                                    placeholder="Bangladesh"
-                                  />
-                                </div>
-                              </div>
-
-                              <div className="flex items-center justify-between gap-8 ">
-                                <div className="w-1/2">
-                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
-                                    {" "}
-                                    Zip / Postal code
-                                  </label>
-                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                                    <input
-                                      className="text-[#6A7283]  focus: outline-none "
-                                      type="text"
-                                      placeholder="123"
-                                    />
-                                  </div>
-                                </div>
-
-                                <div className="w-1/2">
-                                  <label className="text-[#0B0B0B] text-lg  font-semibold">
-                                    Phone
-                                  </label>
-                                  <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
-                                    <input
-                                      className="text-[#6A7283]  focus: outline-none "
-                                      type="tel"
-                                      placeholder="014535856614556"
-                                    />
-                                  </div>
-                                </div>
-                              </div>
-
-                              <div className="flex gap-2 items-center ">
-                                <input
-                                  className="w-5 h-5 accent-[#2FA75F]"
-                                  type="checkbox"
-                                />
-                                <label> Make this my default address</label>
-                              </div>
-                              <div className="flex gap-5 items-center justify-end w-full">
-                                <div className="outline outline-[#071431] rounded-4xl px-8 py-3 cursor-pointer ">
-                                  <button className="text-[#071431] font-medium cursor-pointer">
-                                    Cancel
-                                  </button>
-                                </div>
-                                <div className="rounded-4xl px-5 py-3 bg-[#B45C3D] cursor-pointer ">
-                                  <button className="text-white font-medium cursor-pointer">
-                                    Add Address
-                                  </button>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </DialogContent>
-                      </Dialog>
-                    </div>
-
-                    <div>
-                      <button className="hover:text-black  text-[#6A7283] text-xl underline cursor-pointer">
-                        {" "}
-                        Remove{" "}
-                      </button>
-                    </div>
-                  </div>
-                  <div className="flex gap-2  items-center ">
-                    {" "}
-                    <img src={thick} />
-                    <p className="text-[#6A7283]  text-xl">Default Address</p>
-                  </div>
-                </div>
-                <div className="flex gap-6 flex-col items-center mt-18">
-                  <div className="">
-                    {" "}
-                    <p className="text-[#071431] text-2xl">
-                      You haven't saved any addresses yet.
-                    </p>
-                  </div>
-                  <div className="cursor-pointer bg-[#B45C3D] px-8 py-4 rounded-4xl">
-                    <button className="cursor-pointer text-white">
-                      {" "}
-                      Add New Address
-                    </button>
-                  </div>
-                </div>
-              </div>
+              <Address/>
+             
             </TabsContent>
+
+
 
             <TabsContent value="wallet">
               <div>
@@ -949,7 +748,7 @@ const AccountSettings = () => {
                                   </label>
                                   <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                     <input
-                                      className="text-[#6A7283]  focus: outline-none "
+                                      className="text-[#6A7283]  focus: outline-none w-full "
                                       type="text"
                                       placeholder="John"
                                     />
@@ -963,7 +762,7 @@ const AccountSettings = () => {
                                   </label>
                                   <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                     <input
-                                      className="text-[#6A7283]  focus: outline-none "
+                                      className="text-[#6A7283]  focus: outline-none w-full "
                                       type="text"
                                       placeholder="Doe"
                                     />
@@ -978,7 +777,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none w-full "
                                     type="text"
                                     placeholder="Company"
                                   />
@@ -992,7 +791,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none w-full "
                                     type="text"
                                     placeholder="New York"
                                   />
@@ -1006,7 +805,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none  w-full"
                                     type="text"
                                     placeholder="New York"
                                   />
@@ -1020,7 +819,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none  w-full"
                                     type="text"
                                     placeholder="New York"
                                   />
@@ -1034,7 +833,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none  w-full"
                                     type="text"
                                     placeholder="Bangladesh"
                                   />
@@ -1049,7 +848,7 @@ const AccountSettings = () => {
                                   </label>
                                   <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                     <input
-                                      className="text-[#6A7283]  focus: outline-none "
+                                      className="text-[#6A7283]  focus: outline-none  w-full"
                                       type="text"
                                       placeholder="123"
                                     />
@@ -1062,7 +861,7 @@ const AccountSettings = () => {
                                   </label>
                                   <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                     <input
-                                      className="text-[#6A7283]  focus: outline-none "
+                                      className="text-[#6A7283]  focus: outline-none w-full "
                                       type="tel"
                                       placeholder="014535856614556"
                                     />
@@ -1145,7 +944,7 @@ const AccountSettings = () => {
 
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2 relative">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none  w-full"
                                     type="text"
                                     placeholder="Enter number"
                                   />
@@ -1174,7 +973,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none  w-full"
                                     type="text"
                                     placeholder="MM/YY"
                                   />
@@ -1187,7 +986,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none  w-full"
                                     type="text"
                                     placeholder="3-4 digits"
                                   />
@@ -1202,7 +1001,7 @@ const AccountSettings = () => {
                               </label>
                               <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                 <input
-                                  className="text-[#6A7283]  focus: outline-none "
+                                  className="text-[#6A7283]  focus: outline-none w-full "
                                   type="text"
                                   placeholder="Enter name"
                                 />
@@ -1216,7 +1015,7 @@ const AccountSettings = () => {
                               </label>
                               <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                 <input
-                                  className="text-[#6A7283]  focus: outline-none "
+                                  className="text-[#6A7283]  focus: outline-none w-full"
                                   type="email"
                                   placeholder="johndoe@gmail.com"
                                 />
@@ -1230,7 +1029,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none w-full "
                                     type="text"
                                     placeholder="Enter Your Name"
                                   />
@@ -1243,7 +1042,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none  w-full"
                                     type="text"
                                     placeholder="Enter Your Last Name"
                                   />
@@ -1258,7 +1057,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none  w-full"
                                     type="text"
                                     placeholder="Enter Your Address"
                                   />
@@ -1271,7 +1070,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none  w-full"
                                     type="text"
                                     placeholder="Enter Your Last City"
                                   />
@@ -1419,7 +1218,7 @@ const AccountSettings = () => {
                                 </label>
                                 <div className="bg-[#F5F6F7] border border-[#DFE0E4] px-5 py-3 rounded-lg mt-2">
                                   <input
-                                    className="text-[#6A7283]  focus: outline-none "
+                                    className="text-[#6A7283]  focus: outline-none w-full "
                                     type="tel"
                                     placeholder="12456"
                                   />
