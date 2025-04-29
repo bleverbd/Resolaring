@@ -14,17 +14,24 @@ import { useForm } from "react-hook-form";
 import { useState, useEffect } from "react";
 
 const Address = () => {
+
+
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen1, setIsOpen1] = useState(false);
   const [addresses, setAddresses] = useState(() => {
     const savedAddresses = localStorage.getItem("address");
     return savedAddresses ? JSON.parse(savedAddresses) : [];
   });
   const [tempAddress, setTempAddress] = useState(null); 
 
+
+
   const singleAddress = (phone) => {
     const address = addresses.find((address) => address?.phone === phone);
     setTempAddress(address);
   };
+
+
 
   const {
     register,
@@ -39,18 +46,53 @@ const Address = () => {
   });
 
   useEffect(() => {
-    if (tempAddress) {
+    if (tempAddress !== null) {
       reset({
         firstname: tempAddress.firstname || "",
-        // reset other fields too if needed
+        lastname: tempAddress.lastname || "",
+        companyName:tempAddress.companyName || "",
+        address1: tempAddress.address1 || "",
+        address2: tempAddress.address2 || "",
+        city: tempAddress.city || "",
+        country: tempAddress.country || "",
+        phone: tempAddress.phone || "",
+        zip: tempAddress.zip || "",
       });
+      
     }
   }, [tempAddress, reset]);
 
 
+
+  const handleOpenDialog = () => {
+
+    setTimeout(() => {
+      reset({
+        firstname: "",
+        lastname: "",
+        companyName: "",
+        address1: "",
+        address2: "",
+        city: "",
+        country: "",
+        phone: "",
+        zip: "",
+      });
+      setIsOpen(true);
+    }, 0);
+  };
+
+  const handleOpenDialog1 = () => {
+    reset();         
+    setIsOpen1(true); 
+  };
+
+
+
   const handleCancel = () => {
-    setIsOpen(false);
     reset();
+    setIsOpen(false);
+    setIsOpen1(false);
     setTempAddress(null)
   };
 
@@ -60,14 +102,27 @@ const Address = () => {
     console.log(data);
     saveToLocalStorage(data);
     setAddresses((prevAddresses) => [...prevAddresses, data]);
+
     reset();
     setIsOpen(false);
   };
 
-  const handleOpenDialog = () => {
-    setIsOpen(true);
+
+
+  const editSubmit = (data) => {
+    const address = getAddressFromLocalStorage();
+    const updatedAddress = address.map((item) =>
+      item.phone=== data.phone ? data : item
+    );
+    localStorage.setItem("address", JSON.stringify(updatedAddress));
+    setAddresses(updatedAddress);
+  
     reset();
+    setIsOpen1(false);
   };
+
+
+
 
   const getAddressFromLocalStorage = () => {
     let address = [];
@@ -84,6 +139,8 @@ const Address = () => {
     const saveStored = JSON.stringify(address);
     localStorage.setItem("address", saveStored);
   };
+
+
 
   const handleRemove = (phone) => {
     const address = getAddressFromLocalStorage();
@@ -120,11 +177,11 @@ const Address = () => {
               <div className="flex items-center justify-between mt-2">
                 <div className="flex gap-12 items-center">
                   <div>
-                    <Dialog open={isOpen} onOpenChange={setIsOpen}>
+                    <Dialog open={isOpen1} onOpenChange={setIsOpen1}>
                       <DialogTrigger
                         className="hover:text-black  text-[#6A7283] text-xl underline cursor-pointer"
                         onClick={() => {
-                          handleOpenDialog();
+                          handleOpenDialog1();
                           singleAddress(address?.phone);
                         }}
                       >
@@ -133,11 +190,11 @@ const Address = () => {
 
                       <DialogContent>
                         <form
-                          onSubmit={handleSubmit(onSubmit)}
+                          onSubmit={handleSubmit(editSubmit)}
                           className="px-5 w-[1060px]"
                         >
                           <p className="text-[#071431] text-3xl font-semibold mt-3">
-                            Add New Address
+                          Edit Your Address
                           </p>
                           <hr className="mt-5" />
 
@@ -366,7 +423,7 @@ const Address = () => {
                                 <input
                                   className="text-white font-medium cursor-pointer"
                                   type="submit"
-                                  value="Add New Address"
+                                  value="Edit Address"
                                 />
                               </div>
                             </div>
