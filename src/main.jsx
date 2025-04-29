@@ -29,6 +29,7 @@ import OrderList from './pages/dasboard/OrderList';
 import AccountSettings from './pages/dasboard/AccountSettings';
 import AddNewListing from './pages/dasboard/AddNewListing';
 import ManageListings from './pages/dasboard/ManageListings';
+import ViewProductDetailes from './pages/gallery/ViewProductDetailes';
 
 const router = createBrowserRouter([
 
@@ -74,6 +75,11 @@ const router = createBrowserRouter([
       {
         path: "/gallery",
         element: <Gallery/>,
+      },
+
+      {
+        path: "/gallery/:id",
+        element: <ViewProductDetailes/>,
       },
 
       {

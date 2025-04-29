@@ -6,16 +6,17 @@ import dot from "../../assets/gallery/dot.svg";
 import love from "../../assets/gallery/love.svg";
 import message from "../../assets/gallery/message.svg";
 import btnicon from "../../assets/gallery/btn_icon.svg";
+import { NavLink } from "react-router-dom";
 
 
 const GalleryCart = ({product}) => {
   return (
     <div className="font-Syne max-w-[1520px] my-0 mx-auto">
-      <div>
+      <div >
   
         {/* Card Section */}
 
-        <div className="my-[48px] relative border border-[#DFE0E4] rounded-xl group overflow-hidden w-[332px]">
+        <div className="mt-[48px] relative border border-[#DFE0E4] rounded-xl group overflow-hidden w-[332px]">
           {/* Top Icon */}
           <div>
             <img
@@ -75,7 +76,7 @@ const GalleryCart = ({product}) => {
 
             {/* name Description */}
             <div>
-              <p className="text-[#6A7283] text-sm">
+              <p className="text-[#6A7283] text-sm text-wrap text-justify">
                 {product.productDescription
                 }
               </p>
@@ -83,14 +84,15 @@ const GalleryCart = ({product}) => {
 
             {/* Btn */}
             <div className="cursor-pointer outline outline-[#071431] rounded-4xl px-6 py-2 w-2/4 group-hover:bg-bg-btn-color group-hover:outline-none">
-              <button className="flex gap-1 items-center cursor-pointer ">
+             <NavLink to={`/gallery/${product.id}`} state={product}>
+             <button className="flex gap-1 items-center cursor-pointer ">
                 <p className="text-[#071431] text-sm">View Details</p>
                 <img
                   className="group-hover:translate-x-2 duration-300"
                   src={btnicon}
                   alt="btn_icon"
                 />
-              </button>
+              </button></NavLink>
             </div>
           </div>
         </div>

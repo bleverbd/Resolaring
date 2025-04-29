@@ -1,8 +1,7 @@
 import React from "react";
-import marketplace_banner from "../../assets/marketplace_banner_img.jpg";
+
 import bg from "../../assets/gallery/bg.png";
 import Btn from "../../components/Btn";
-import { NavLink } from "react-router-dom";
 
 function GalleryHero() {
   return (
