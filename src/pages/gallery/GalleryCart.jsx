@@ -46,8 +46,10 @@ const GalleryCart = ({ product }) => {
   };
 
   const shareInstagram = () => {
-    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent("Check out this page: " + currentURL)}`;
-    window.open(url, '_blank');
+    const url = `https://api.whatsapp.com/send?text=${encodeURIComponent(
+      "Check out this page: " + currentURL
+    )}`;
+    window.open(url, "_blank");
   };
 
   const copyLink = () => {
@@ -114,20 +116,20 @@ const GalleryCart = ({ product }) => {
               </div>
 
               <div>
-                <Popover open={open} onOpenChange={setOpen} >
-                  <PopoverTrigger  className="cursor-pointer">
+                <Popover open={open} onOpenChange={setOpen}>
+                  <PopoverTrigger className="cursor-pointer">
                     <img src={dot} alt="card_star" />
                   </PopoverTrigger>
                   <PopoverContent className=" p-0 font-Syne text-[#6A7283] font-medium text-lg w-40">
                     <div>
-                      <Dialog >
-                        <DialogTrigger >
-                          <div  className=" cursor-pointer flex gap-2 items-center hover:bg-[#F5F6F7] hover:w-40 px-5 py-2">
+                      <Dialog>
+                        <DialogTrigger>
+                          <div className=" cursor-pointer flex gap-2 items-center hover:bg-[#F5F6F7] hover:w-40 px-5 py-2">
                             <img src={share} />
-                            <p  >Share</p>
+                            <p>Share</p>
                           </div>
                         </DialogTrigger>
-                        <DialogContent   className="flex flex-col gap-10 items-center justify-center px-5 py-5 w-1/2 h-2/4">
+                        <DialogContent className="flex flex-col gap-10 items-center justify-center px-5 py-5 w-1/2 h-2/4">
                           <div>
                             <p className="text-[#071431] font-semibold text-6xl">
                               Share
@@ -172,13 +174,48 @@ const GalleryCart = ({ product }) => {
                           </div>
                         </DialogTrigger>
                         <DialogContent>
-                          <DialogHeader>
-                            <DialogTitle>Are you absolutely sure?</DialogTitle>
-                            <DialogDescription>
-                              This action cannot be undone. This will
-                              permanently delete your account and remove your
-                              data from our servers.
-                            </DialogDescription>
+                          <DialogHeader className="flex ">
+                            <div className="flex flex-col gap-10 w-[1063px] px-10 py-10">
+                              <div>
+                                <p className="text-[#071431] text-5xl font-semibold">
+                                  Report spam or abuse
+                                </p>
+                              </div>
+                              <div>
+                                <p className="text-[#071431] text-4xl">
+                                  Why are you reporting this?
+                                </p>
+                              </div>
+                              <div className="flex flex-col gap-5">
+                                <div className="flex items-center gap-4">
+                                  <input className="h-7 w-7" type="radio" />
+                                  <label className="text-[#6A7283] text-3xl">
+                                    {" "}
+                                    Unwanted content or spam
+                                  </label>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                  <input className="h-7 w-7" type="radio" />
+                                  <label className="text-[#6A7283] text-3xl">
+                                    {" "}
+                                    Harassment or bullying
+                                  </label>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                  <input className="h-7 w-7" type="radio" />
+                                  <label className="text-[#6A7283] text-3xl">
+                                    {" "}
+                                    Inappropriate content
+                                  </label>
+                                </div>
+                                <div className="flex items-center gap-4">
+                                  <input className="h-7 w-7" type="radio" />
+                                  <label className="text-[#6A7283] text-3xl">
+                                    Hate speech or graphic violence
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
                           </DialogHeader>
                         </DialogContent>
                       </Dialog>
