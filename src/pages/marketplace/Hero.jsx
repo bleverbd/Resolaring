@@ -38,7 +38,7 @@ function Hero() {
                 {" "}
                 Home{" "}
               </span>{" "}
-              <span> > </span> <span> Panels </span>{" "}
+               <span> Panels </span>{" "}
             </p>
           </div>
           {/* Tittle */}
