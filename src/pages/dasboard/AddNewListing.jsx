@@ -2,6 +2,7 @@ import React from "react";
 import image_icon from "../../assets/gallery/image_icon.svg";
 import Profile from "@/components/dasboard/Profile";
 import btn_icon from "../../assets/gallery/btn_icon.svg";
+import { Navigate } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -55,6 +56,7 @@ const AddNewListing = () => {
   const [condition, setCondition] = useState("");
   const [categoryProduct, setCategoryProduct] = useState("");
   const [file, setFile] = useState(null);
+  
 
   const handleFileChange = (e) => {
     const uploadedFile = e.target.files[0];
@@ -70,6 +72,24 @@ const AddNewListing = () => {
   let storedData = JSON.parse(localStorage.getItem("products")) || [];
 
   const handleView = () => {
+
+
+
+    if (
+      !tittle.trim() ||
+      !description.trim() ||
+      !specifications.trim() ||
+      !price.trim() ||
+      !discount.trim() ||
+      !shipping.trim() ||
+      !bandName.trim() ||
+      !condition.trim() ||
+      !categoryProduct.trim() ||
+      !file
+    ) {
+      toast.error("Please fill out all fields before submitting.");
+      return;
+    }
     const productData = {
       id: Date.now(),
       title: tittle,
@@ -99,6 +119,8 @@ const AddNewListing = () => {
     setCondition("");
     setCategoryProduct("");
     setFile(null);
+
+    
   };
 
   return (
@@ -135,6 +157,9 @@ const AddNewListing = () => {
           </div>
         </div>
       </div>
+      
+
+
 
       {/* Description */}
       <div className="mt-12">
@@ -249,6 +274,7 @@ const AddNewListing = () => {
           </div>
 
           <div className="flex items-center justify-between">
+
             <div className="w-[470px] mt-5 ">
               <label className="text-[#0B0B0B] font-semibold text-lg">
                 Price:
@@ -263,6 +289,7 @@ const AddNewListing = () => {
                 />
               </div>
             </div>
+
 
             <div className="w-[470px] mt-5">
               <label className="text-[#0B0B0B] font-semibold text-lg">
