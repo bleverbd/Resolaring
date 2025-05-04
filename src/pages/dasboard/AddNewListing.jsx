@@ -2,7 +2,6 @@ import React from "react";
 import image_icon from "../../assets/gallery/image_icon.svg";
 import Profile from "@/components/dasboard/Profile";
 import btn_icon from "../../assets/gallery/btn_icon.svg";
-import { Navigate } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -44,8 +43,10 @@ const solarCategories = [
   { id: 4, value: "batteries", item: "Batteries" },
   { id: 5, value: "measurement-equipment", item: "Measurement Equipment" },
 ];
+import { useNavigate } from "react-router-dom";
 
 const AddNewListing = () => {
+  const usenavigate=useNavigate();
   const [tittle, setTittle] = useState("");
   const [description, setDescription] = useState("");
   const [specifications, setSpecifications] = useState("");
@@ -120,6 +121,9 @@ const AddNewListing = () => {
     setCategoryProduct("");
     setFile(null);
 
+
+    
+    usenavigate("/dashboard/managelisting");
     
   };
 
