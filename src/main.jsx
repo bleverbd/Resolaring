@@ -125,18 +125,21 @@ const router = createBrowserRouter([
         element: <OrderList/>
       },
 
-      
-      { path: "accountsetting", 
-        element:<AccountSettings/>
+
+      { path: "managelisting", 
+        element: <ManageListings/>
       },
       
       { path: "addnewlisting", 
         element: <AddNewListing/>
       },
+
       
-      { path: "managelisting", 
-        element: <ManageListings/>
+      { path: "accountsetting", 
+        element:<AccountSettings/>
       },
+      
+      
       
 
     ],

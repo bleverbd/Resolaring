@@ -25,8 +25,10 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import StatusManageList from "./StatusManageList";
+import {useNavigate } from "react-router-dom";
 
 const ManageListings = () => {
+  const navigate=useNavigate();
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isEditOpen, setIsEditOpen] = useState(false);
@@ -71,12 +73,20 @@ const ManageListings = () => {
     setOpenMenu((prev) => (prev === productId ? null : productId));
   };
 
+  const Goback=()=>{
+    navigate(-1);
+
+  }
+
   return (
     <div className="font-Syne mx-[48px] mt-[48px] mb-[72px]">
       <div className="flex justify-between items-center">
         <p className="text-[#071431] text-[40px] font-semibold">
           Manage Listings
         </p>
+      </div>
+      <div>
+        <button onClick={Goback}> Go Back</button>
       </div>
 
       <div className="mt-12">
